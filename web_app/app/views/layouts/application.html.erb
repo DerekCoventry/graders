@@ -16,7 +16,11 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div class="col-md-10" style="background-color:white">
+      <%= yield %>
+    </div>
+    <div class="col-sm-12">
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
