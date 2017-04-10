@@ -16,7 +16,15 @@
           </ul>
         </li>
         </ul>
-        <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#">Log In</a> <a class="btn btn-default action-button" role="button" href="#">Sign Up</a></p>
+        <p class="navbar-text navbar-right actions">
+        <% if user_signed_in? %><strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link login'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'btn btn-default action-button', :role => 'button'  %>
+        <% end %>
+
       </div>
     </div>
   </nav>

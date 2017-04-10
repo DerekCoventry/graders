@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @applicant.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @applicant.lname %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @applicant.year %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @applicant.email %>
+</p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= @applicant.schedule %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @applicant.available %>
+</p>
+
+<%= link_to 'Edit', edit_applicant_path(@applicant) %> |
+<%= link_to 'Back', applicants_path %>

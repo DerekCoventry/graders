@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mondayStart: 9.99
+  mondayEnd: 9.99
+  tuesdayStart: 9.99
+  tuesdayEnd: 9.99
+  wednesdayStart: 9.99
+  wednesdayEnd: 9.99
+  thursdayStart: 9.99
+  thursdayEnd: 9.99
+  fridayStart: 9.99
+  fridayEnd: 9.99
+
+two:
+  mondayStart: 9.99
+  mondayEnd: 9.99
+  tuesdayStart: 9.99
+  tuesdayEnd: 9.99
+  wednesdayStart: 9.99
+  wednesdayEnd: 9.99
+  thursdayStart: 9.99
+  thursdayEnd: 9.99
+  fridayStart: 9.99
+  fridayEnd: 9.99

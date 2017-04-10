@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mondaystart:</strong>
+  <%= @schedule.mondayStart %>
+</p>
+
+<p>
+  <strong>Mondayend:</strong>
+  <%= @schedule.mondayEnd %>
+</p>
+
+<p>
+  <strong>Tuesdaystart:</strong>
+  <%= @schedule.tuesdayStart %>
+</p>
+
+<p>
+  <strong>Tuesdayend:</strong>
+  <%= @schedule.tuesdayEnd %>
+</p>
+
+<p>
+  <strong>Wednesdaystart:</strong>
+  <%= @schedule.wednesdayStart %>
+</p>
+
+<p>
+  <strong>Wednesdayend:</strong>
+  <%= @schedule.wednesdayEnd %>
+</p>
+
+<p>
+  <strong>Thursdaystart:</strong>
+  <%= @schedule.thursdayStart %>
+</p>
+
+<p>
+  <strong>Thursdayend:</strong>
+  <%= @schedule.thursdayEnd %>
+</p>
+
+<p>
+  <strong>Fridaystart:</strong>
+  <%= @schedule.fridayStart %>
+</p>
+
+<p>
+  <strong>Fridayend:</strong>
+  <%= @schedule.fridayEnd %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>

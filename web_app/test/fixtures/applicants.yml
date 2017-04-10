@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  year: 1
+  email: MyString
+  schedule: one
+  available: false
+
+two:
+  fname: MyString
+  lname: MyString
+  year: 1
+  email: MyString
+  schedule: two
+  available: false
