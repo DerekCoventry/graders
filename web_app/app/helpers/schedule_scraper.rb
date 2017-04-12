@@ -68,12 +68,23 @@ end
 
 #Enter the appropriate info into form and click submit
 form = source.forms.first
-semesterOption = semesterVal[0].to_i
+semesterOption = semesterVal[0].to_s
 scheduleVal = scheduleVal.to_i
-form.field_with(:name => "tc").options[1].select
-form.field_with(:name => "options").options[0].select
-schedulePage = form.click_button
-puts Nokogiri::HTML(open(schedulePage.uri.to_s))
+
+form.field_with(:name => "tc").options.each do |x|
+	if (x.to_s == semesterOption)
+		x.select
+		break
+	end
+end
+
+schedulePage = form.submit
+puts schedulePage.title
+
+# form.field_with(:name => "tc").first.select
+# form.field_with(:name => "options").first.select
+# schedulePage = form.submit
+# puts Nokogiri::HTML(open(schedulePage.uri.to_s))
 
 
 # puts scheduleVal
