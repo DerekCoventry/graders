@@ -70,16 +70,46 @@ end
 form = source.forms.first
 semesterOption = semesterVal[0].to_s
 scheduleVal = scheduleVal.to_i
+tcOption = Array.new
 
 form.field_with(:name => "tc").options.each do |x|
-	if (x.to_s == semesterOption)
-		x.select
-		break
+	tcOption.push(x.to_s)
+end
+
+#new mechanize object to open schedule page
+scheduleScraper = Mechanize.new
+scheduleSourceArray = Array.new
+sourceString = "https://web.cse.ohio-state.edu/cgi-bin/portal/report_manager/display_schedule-drupal.cgi?display_options=1;options=1full;tc=1178"
+
+sourceString.slice!(sourceString.length - 4..sourceString.length)
+
+for i in 0..tcOption.length - 1 do
+	temp = ''
+	temp << sourceString
+	temp.concat(tcOption[i])
+	scheduleSourceArray.push(temp)
+end
+
+scheduleSourceArray.each do |s|
+	if (s.index(semesterOption) != nil) then
+		sourceString.clear.concat(s)
 	end
 end
 
-schedulePage = form.submit
-puts schedulePage.title
+scheduleSource = scheduleScraper.get(sourceString)
+doc = Nokogiri::HTML(open(scheduleSource.uri.to_s))
+form = scheduleSource.forms.first
+newPage = form.submit
+newDoc = Nokogiri::HTML(open(newPage.uri.to_s))
+
+puts newDoc
+
+
+
+# puts form.to_s
+
+# schedulePage = form.submit
+# puts schedulePage.title
 
 # form.field_with(:name => "tc").first.select
 # form.field_with(:name => "options").first.select
