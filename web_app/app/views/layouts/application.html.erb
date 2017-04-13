@@ -11,15 +11,15 @@
   <body style="background-color:#333">
   	<%= render 'layouts/header' %>
     <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
+      <p class="alert alert-success" style="margin-bottom:0px"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+      <p class="alert alert-danger" style="margin-bottom:0px"><%= alert %></p>
     <% end %>
     <div class="col-md-1" style="background-color: #333; min-height:800px"></div>
     <div class="col-md-10" style="background-color:white; min-height:800px; padding-left:0px; padding-right:0px">
       <%= render 'layouts/navbar' %>
-      <div style="padding-left:15px; padding-right:15px">
+      <div style="padding-left:15px; padding-right:15px; padding-top: 15px">
       <%= yield %>
       </div>
     </div>

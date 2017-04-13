@@ -1,8 +1,10 @@
-<div class="collapse navbar-collapse" id="navcol-1" style="background-color:#333">        
-        <ul class="nav navbar-nav" >
+<div class="collapse navbar-collapse" id="navcol-1" style="background-color:#333;padding-top:5px">        
+        <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-          <li class="presentation" role="presentation" style="background-color:white; margin-left:5px; margin-right:5px"><a href="../../../students/index">Students</a></li>
-          <li role="presentation" style="background-color:white; margin-left:5px; margin-right:5px"><a href="../../../professors/index">Professor</a></li>
+        <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="/" style="padding-top: 10px; padding-bottom:10px ">Home</a></li>
+          <li class="presentation" role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../students/index" style="padding-top: 10px; padding-bottom:10px ">Students</a></li>
+          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../professors/index" style="padding-top: 10px; padding-bottom:10px ">Professors</a></li>
+          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../recommendations" style="padding-top: 10px; padding-bottom:10px ">Recommendations</a></li>
         <% end %>
         </li>
         </ul>

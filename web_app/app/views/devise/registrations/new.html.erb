@@ -32,10 +32,14 @@
   </div>
 
   <div class="field">
-    <%= f.label :stud %>
-    <%= f.check_box :stud %>
-  </div>
 
+    <%= f.label :student, "Student" %>
+    <%= f.radio_button :student, true, :value => true %>
+
+    <%= f.label :student, "Professor"  %>
+    <%= f.radio_button :student, false, :value => false%>
+
+  </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

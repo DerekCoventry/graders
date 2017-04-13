@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :schedulename %>
+    <%= f.text_field :schedulename %>
+    <p>For example "au16"</p>
+  </div>
+
 
   <div class="field">
     <%= f.label :mondayStart %>
@@ -64,4 +70,8 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+    <div class="field" style="visibility:hidden">
+  <%= f.select :student_id, options_for_select([current_user.id]), :display => "none" %>
+</div>
 <% end %>
