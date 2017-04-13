@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background-color:#333">
   	<%= render 'layouts/header' %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -16,10 +16,15 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-    <div class="col-md-10" style="background-color:white">
+    <div class="col-md-1" style="background-color: #333; min-height:800px"></div>
+    <div class="col-md-10" style="background-color:white; min-height:800px; padding-left:0px; padding-right:0px">
+      <%= render 'layouts/navbar' %>
+      <div style="padding-left:15px; padding-right:15px">
       <%= yield %>
+      </div>
     </div>
-    <div class="col-sm-12">
+    <div class="col-md-1" style="background-color: #333; min-height:800px"></div>
+    <div class="col-sm-12" style="background-color: #333; min-height:100px">
       <%= render 'layouts/footer' %>
     </div>
   </body>

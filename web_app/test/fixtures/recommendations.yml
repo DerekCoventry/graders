@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  professor: MyString
+  pemail: MyString
+  student: MyString
+  semail: MyString
+  course: MyString
+  notes: MyText
+
+two:
+  professor: MyString
+  pemail: MyString
+  student: MyString
+  semail: MyString
+  course: MyString
+  notes: MyText

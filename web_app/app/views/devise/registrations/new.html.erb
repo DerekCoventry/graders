@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= f.label "Last Name" %><br />
+    <%= f.text_field :lname %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
   </div>
@@ -25,6 +30,12 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+  <div class="field">
+    <%= f.label :stud %>
+    <%= f.check_box :stud %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>

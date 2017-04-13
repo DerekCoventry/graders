@@ -1,21 +1,11 @@
 <div>
-  <nav class="navbar navbar-default navigation-clean-button" style="margin-bottom:0">
+  <nav class="navbar navbar-default navigation-clean-button" style="margin-bottom:0; padding-top:0px; padding-bottom:0px">
     <div class="container">
       <div class="navbar-header"><a class="navbar-brand" href="/">Final Project</a>
         <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
       </div>
-      <div class="collapse navbar-collapse" id="navcol-1">
-        <ul class="nav navbar-nav">
-          <li class="active" role="presentation"><a href="#">Students</a></li>
-          <li role="presentation"><a href="#">Professor</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Offered Services <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li role="presentation"><a href="#">First Item</a></li>
-            <li role="presentation"><a href="#">Second Item</a></li>
-            <li role="presentation"><a href="#">Third Item</a></li>
-          </ul>
-        </li>
-        </ul>
+      <div class="collapse navbar-collapse" id="navcol-1" style="padding-bottom:5px">
+
         <p class="navbar-text navbar-right actions">
         <% if user_signed_in? %><strong><%= current_user.email %></strong>.
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -30,7 +20,7 @@
     </div>
   </nav>
 </div>
-	<div class="jumbotron" style="padding-top:5px; padding-bottom:5px">
-		<h1>Web Apps Project</h1>
-		<p> Boostrap integration test</p>
+	<div class="jumbotron" style="padding-top:5px; padding-bottom:15px; background:transparent !important; color:white; margin-bottom:0px">
+		<h2>CSE Undergrad Grader Sign-up</h2>
+		<p>&nbsp;Becoming a grader never felt so simple.</p>
 	</div>

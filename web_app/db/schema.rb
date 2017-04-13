@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411195736) do
+ActiveRecord::Schema.define(version: 20170413211828) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "fname"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20170411195736) do
     t.integer  "schedule_id"
     t.         "appid"
     t.index ["schedule_id"], name: "index_applicants_on_schedule_id"
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.string   "professor"
+    t.string   "pemail"
+    t.string   "student"
+    t.string   "semail"
+    t.string   "course"
+    t.text     "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -65,6 +76,13 @@ ActiveRecord::Schema.define(version: 20170411195736) do
     t.string   "fname"
     t.boolean  "admin",                  default: false
     t.integer  "role"
+    t.boolean  "student",                default: false
+    t.string   "lname"
+    t.boolean  "professor",              default: false
+    t.boolean  "stud"
+    t.boolean  "admin_role",             default: false
+    t.boolean  "student_role",           default: false
+    t.boolean  "professor_role",         default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

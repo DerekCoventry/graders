@@ -58,3 +58,5 @@ gem 'autoprefixer-rails'
 gem 'devise'
 
 gem 'rails_admin', '~> 1.1.1'
+
+gem 'cancancan'

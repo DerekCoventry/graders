@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :recommendations
+  get 'professors/index'
+
+  get 'professors/recommendations'
+
+  get 'students/index'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :schedules
