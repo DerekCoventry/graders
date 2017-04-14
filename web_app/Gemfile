@@ -60,3 +60,17 @@ gem 'devise'
 gem 'rails_admin', '~> 1.1.1'
 
 gem 'cancancan'
+
+gem 'nokogiri'
+
+gem 'mechanize'
+
+gem 'restclient'
+
+gem 'restup'
+
+gem 'mime-types'
+
+gem 'netrc'
+
+gem 'http-cookie'
