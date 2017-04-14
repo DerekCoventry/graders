@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= f.label :schedule_id %>
-    <%= f.text_field :schedule_id %>
+    <%= f.select :schedule_id, options_for_select(Schedule.all.map{|s|[s.schedulename]})  %>
   </div>
 
   <div class="field">
