@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20170414173228) do
     t.string   "fname"
     t.boolean  "admin",                  default: false
     t.integer  "role"
-    t.boolean  "student",                default: false
+    t.boolean  "student"
     t.string   "lname"
     t.boolean  "professor",              default: false
     t.boolean  "stud"
