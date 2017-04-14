@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413222046) do
+ActiveRecord::Schema.define(version: 20170414173228) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "fname"
@@ -18,10 +18,34 @@ ActiveRecord::Schema.define(version: 20170413222046) do
     t.integer  "year"
     t.string   "email"
     t.boolean  "available"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "schedule_id"
     t.         "appid"
+    t.integer  "mondayStartFirst",     default: 0
+    t.integer  "mondayEndFirst",       default: 0
+    t.integer  "tuesdayStartFirst",    default: 0
+    t.integer  "tuesdayEndFirst",      default: 0
+    t.integer  "wednesdayStartFirst",  default: 0
+    t.integer  "wednesdayEndFirst",    default: 0
+    t.integer  "thursdayStartFirst",   default: 0
+    t.integer  "thursdayEndFirst",     default: 0
+    t.integer  "fridayStartFirst",     default: 0
+    t.integer  "fridayEndFirst",       default: 0
+    t.integer  "mondayStartSecond",    default: 0
+    t.integer  "mondayEndSecond",      default: 0
+    t.integer  "tuesdayStartSecond",   default: 0
+    t.integer  "tuesdayEndSecond",     default: 0
+    t.integer  "wednesdayStartSecond", default: 0
+    t.integer  "wednesdayEndSecond",   default: 0
+    t.integer  "thursdayStartSecond",  default: 0
+    t.integer  "thursdayEndSecond",    default: 0
+    t.integer  "fridayStartSecond",    default: 0
+    t.integer  "fridayEndSecond",      default: 0
+    t.string   "semester"
+    t.string   "classOne"
+    t.string   "classTwo"
+    t.string   "classThree"
     t.index ["schedule_id"], name: "index_applicants_on_schedule_id"
   end
 

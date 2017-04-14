@@ -69,6 +69,17 @@ class ApplicantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def applicant_params
-      params.require(:applicant).permit(:fname, :lname, :year, :email, :schedule_id, :available)
+      params.require(:applicant).permit(:fname, :lname, :year, :email, :schedule_id, :available,
+        :mondayStartFirst, :mondayEndFirst,
+        :tuesdayStartFirst, :tuesdayEndFirst,
+        :wednesdayStartFirst, :wednesdayEndFirst,
+        :thursdayStartFirst, :thursdayEndFirst,
+        :fridayStartFirst, :fridayEndFirst,
+        :mondayStartSecond, :mondayEndSecond, 
+        :tuesdayStartSecond, :tuesdayEndSecond, 
+        :wednesdayStartSecond, :wednesdayEndSecond, 
+        :thursdayStartSecond, :thursdayEndSecond, 
+        :fridayStartSecond, :fridayEndSecond,
+        :schedule, :classOne, :classTwo, :classThree)
     end
 end

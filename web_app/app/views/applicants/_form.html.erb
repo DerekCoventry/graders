@@ -12,36 +12,213 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :fname %>
+    <%= f.label "First Name" %>
     <%= f.text_field :fname %>
   </div>
 
+
   <div class="field">
-    <%= f.label :lname %>
+    <%= f.label "Last Name" %>
     <%= f.text_field :lname %>
   </div>
 
+
   <div class="field">
-    <%= f.label :year %>
-    <%= f.number_field :year %>
-  </div>
+    <%= f.label :semester %>
+    <%= f.select :semester, options_for_select(["au16", "sp16", "au17", "sp17", "au18", "sp18", "au19", "sp19"])  %>
+    </div>
 
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
+  <table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th colspan=2 style="text-align:center; border-bottom: 1px solid black">First Interval</th>
+      <th colspan=2 style="text-align:center; border-bottom: 1px solid black">Second Interval</th>
+    </tr>
+    <tr>
+      <th style="text-align:center">Day</th>
+      <th style="text-align:center">Start</th>
+      <th style="text-align:center">End</th>
+      <th style="text-align:center">Start</th>
+      <th style="text-align:center">End</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>Monday</td>
+        <td style="padding-right:10px"> 
+          <div class="field">
+            <%= f.select :mondayStartFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+          </div>
+        </td>
+        <td style="padding-right:10px">
+          <div class="field">
+            <%= f.select :mondayEndFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+          </div>
+        </td>
+        <td style="padding-right:10px"> 
+          <div class="field">
+            <%= f.select :mondayStartSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+          </div>
+        </td>
+        <td style="padding-right:10px"> 
+          <div class="field">
+            <%= f.select :mondayEndSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
+      <td>Tuesday</td>
+      <td>
+        <div class="field">
+          <%= f.select :tuesdayStartFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :tuesdayEndFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :tuesdayStartSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :tuesdayEndSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+        </td>
+      </tr>
+
+      <tr>
+      <td style="padding-right:10px">Wednesday</td>
+      <td>
+        <div class="field">
+          <%= f.select :wednesdayStartFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :wednesdayEndFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+        <td>
+          <div class="field">
+            <%= f.select :wednesdayStartSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :wednesdayEndSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+        </td>
+      </tr>
+
+      <tr>
+      <td>Thursday</td>
+      <td>
+        <div class="field">
+          <%= f.select :thursdayStartFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :thursdayEndFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :thursdayStartSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :thursdayEndSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+        </td>
+      </tr>
+
+      <tr>
+      <td>Friday</td>
+      <td>
+        <div class="field">
+        <%= f.select :fridayStartFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+        <%= f.select :fridayEndFirst, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+        <%= f.select :fridayStartSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+        <%= f.select :fridayEndSecond, options_for_select([0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230]) %>
+        </div>
+        </td>
+      </tr>
+
+  </tbody>
+</table>
+<br /><br />
+<table>
+  <thead>
+    <tr>
+      <th colspan=3 style="text-align:center; border-bottom: 1px solid black">Class For Grading Preference</th>
+    </tr>
+    <tr>
+      <th style="text-align:center">First</th>
+      <th style="text-align:center">Second</th>
+      <th style="text-align:center">Third</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td style="padding-right:30px"><div class="field">
+    <%= f.label "CSE" %>
+    <%= f.select :classOne, options_for_select([1110, 1111, 1112, 1113, 1114, 1211, 1212, 1221, 1222, 1223, 2021, 2111, 2112, 2122, 2123, 2133, 2193, 2193, 2194, 2194, 2221, 2222, 2231, 2231, 2232, 2321, 2331, 2421, 2431, 2451, 2501, 3231, 3232, 3241, 3321, 3341, 3421, 3430, 3461, 3521, 3541, 3901, 3902, 3903, 4191, 4193, 4193, 4194, 4194, 4251, 4252, 4253, 4254, 4255, 4471, 4998, 4998, 4999, 4999, 5022, 5023, 5032, 5042, 5043, 5052, 5194, 5194, 5231, 5232, 5234, 5235, 5236, 5239, 5241, 5242, 5243, 5245, 5249, 5321, 5329, 5331, 5339, 5341, 5343, 5349, 5351, 5359, 5361, 5421, 5429, 5431, 5432, 5433, 5434, 5439, 5441, 5449, 5461, 5462, 5463, 5469, 5472, 5473, 5479, 5501, 5521, 5522, 5523, 5524, 5525, 5526, 5531, 5539, 5541, 5542, 5543, 5544, 5545, 5559, 5891, 5911, 5912, 5913, 5914, 5915])  %>
+    </div></td>
+      <td style="padding-right:30px"><div class="field">
+    <%= f.label "CSE" %>
+    <%= f.select :classOne, options_for_select([1110, 1111, 1112, 1113, 1114, 1211, 1212, 1221, 1222, 1223, 2021, 2111, 2112, 2122, 2123, 2133, 2193, 2193, 2194, 2194, 2221, 2222, 2231, 2231, 2232, 2321, 2331, 2421, 2431, 2451, 2501, 3231, 3232, 3241, 3321, 3341, 3421, 3430, 3461, 3521, 3541, 3901, 3902, 3903, 4191, 4193, 4193, 4194, 4194, 4251, 4252, 4253, 4254, 4255, 4471, 4998, 4998, 4999, 4999, 5022, 5023, 5032, 5042, 5043, 5052, 5194, 5194, 5231, 5232, 5234, 5235, 5236, 5239, 5241, 5242, 5243, 5245, 5249, 5321, 5329, 5331, 5339, 5341, 5343, 5349, 5351, 5359, 5361, 5421, 5429, 5431, 5432, 5433, 5434, 5439, 5441, 5449, 5461, 5462, 5463, 5469, 5472, 5473, 5479, 5501, 5521, 5522, 5523, 5524, 5525, 5526, 5531, 5539, 5541, 5542, 5543, 5544, 5545, 5559, 5891, 5911, 5912, 5913, 5914, 5915])  %>
+    </div></td>
+      <td style="padding-right:30px"><div class="field">
+    <%= f.label "CSE" %>
+    <%= f.select :classOne, options_for_select([1110, 1111, 1112, 1113, 1114, 1211, 1212, 1221, 1222, 1223, 2021, 2111, 2112, 2122, 2123, 2133, 2193, 2193, 2194, 2194, 2221, 2222, 2231, 2231, 2232, 2321, 2331, 2421, 2431, 2451, 2501, 3231, 3232, 3241, 3321, 3341, 3421, 3430, 3461, 3521, 3541, 3901, 3902, 3903, 4191, 4193, 4193, 4194, 4194, 4251, 4252, 4253, 4254, 4255, 4471, 4998, 4998, 4999, 4999, 5022, 5023, 5032, 5042, 5043, 5052, 5194, 5194, 5231, 5232, 5234, 5235, 5236, 5239, 5241, 5242, 5243, 5245, 5249, 5321, 5329, 5331, 5339, 5341, 5343, 5349, 5351, 5359, 5361, 5421, 5429, 5431, 5432, 5433, 5434, 5439, 5441, 5449, 5461, 5462, 5463, 5469, 5472, 5473, 5479, 5501, 5521, 5522, 5523, 5524, 5525, 5526, 5531, 5539, 5541, 5542, 5543, 5544, 5545, 5559, 5891, 5911, 5912, 5913, 5914, 5915])  %>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 
   <div class="field">
     <%= f.label :schedule_id %>
     <%= f.select :schedule_id, options_for_select(Schedule.all.map{|s|[s.schedulename]})  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :available %>
-    <%= f.check_box :available %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
