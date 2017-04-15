@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414173228) do
+ActiveRecord::Schema.define(version: 20170415225411) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "fname"
@@ -47,6 +47,25 @@ ActiveRecord::Schema.define(version: 20170414173228) do
     t.string   "classTwo"
     t.string   "classThree"
     t.index ["schedule_id"], name: "index_applicants_on_schedule_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.integer  "sectionNumber"
+    t.integer  "primarykey"
+    t.integer  "courseNumber"
+    t.integer  "mondayStart"
+    t.integer  "mondayEnd"
+    t.integer  "tuesdayStart"
+    t.integer  "tuesdayEnd"
+    t.integer  "wednesdayStart"
+    t.integer  "wednesdayEnd"
+    t.integer  "thursdayStart"
+    t.integer  "thursdayEnd"
+    t.integer  "fridayStart"
+    t.integer  "fridayEnd"
+    t.string   "professor"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "recommendations", force: :cascade do |t|
