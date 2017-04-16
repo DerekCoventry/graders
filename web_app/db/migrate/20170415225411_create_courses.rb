@@ -1,7 +1,7 @@
 class CreateCourses < ActiveRecord::Migration[5.0]
   def change
     create_table :courses do |t|
-      t.integer :sectionNumber, :primarykey
+      t.integer :sectionNumber
       t.integer :courseNumber
       t.integer :mondayStart
       t.integer :mondayEnd
