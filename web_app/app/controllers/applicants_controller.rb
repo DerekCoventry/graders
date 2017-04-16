@@ -6,8 +6,11 @@ class ApplicantsController < ApplicationController
   # GET /applicants
   # GET /applicants.json
   def index
-    @applicants = smart_listing_create(:applicants, Applicant.all, partial: "applicants/listing")
-  end
+
+    applicants_scope = Applicant.all
+    applicants_scope = applicants_scope.like(params[:filter]) if params[:filter]
+    @applicants = smart_listing_create :applicants, applicants_scope, partial: "applicants/listing"
+      end
 
   # GET /applicants/1
   # GET /applicants/1.json
