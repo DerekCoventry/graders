@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sectionNumber: 1
+  courseNumber: 1
+  mondayStart: 1
+  mondayEnd: 1
+  tuesdayStart: 1
+  tuesdayEnd: 1
+  wednesdayStart: 1
+  wednesdayEnd: 1
+  thursdayStart: 1
+  thursdayEnd: 1
+  fridayStart: 1
+  fridayEnd: 1
+  professor: MyString
+
+two:
+  sectionNumber: 1
+  courseNumber: 1
+  mondayStart: 1
+  mondayEnd: 1
+  tuesdayStart: 1
+  tuesdayEnd: 1
+  wednesdayStart: 1
+  wednesdayEnd: 1
+  thursdayStart: 1
+  thursdayEnd: 1
+  fridayStart: 1
+  fridayEnd: 1
+  professor: MyString
