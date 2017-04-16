@@ -1,0 +1,18 @@
+%p hellohello
+- unless smart_listing.empty?
+  %table
+    %thead
+      %tr 
+        %th First
+        %th Last
+        %th Email
+    %tbody
+      - smart_listing.collection.each do |applicant|
+        %tr
+          %td= applicant.fname
+          %td= applicant.lname
+          %td= applicant.email
+
+  = smart_listing.paginate 
+- else
+  %p.warning No records!

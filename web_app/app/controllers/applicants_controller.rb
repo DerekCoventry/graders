@@ -1,10 +1,12 @@
 class ApplicantsController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper SmartListing::Helper
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
 
   # GET /applicants
   # GET /applicants.json
   def index
-    @applicants = Applicant.all
+    @applicants = smart_listing_create(:applicants, Applicant.all, partial: "applicants/listing")
   end
 
   # GET /applicants/1
