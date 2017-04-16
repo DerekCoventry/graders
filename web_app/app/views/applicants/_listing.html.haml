@@ -1,9 +1,10 @@
-%p hellohello
 - unless smart_listing.empty?
   = smart_listing_controls_for(:applicants) do
     .filter.input-append
     %label CSE
-    %select
+    %select{:name => "filter"}
+      %option{:value => 0, :selected => params[:x] == "0"}= "0" 
+      %option{:value => 1110, :selected => params[:x] == "1110"}= "1110" 
       %option{:value => 1111, :selected => params[:x] == "1111"}= "1111" 
       %option{:value => 1112, :selected => params[:x] == "1112"}= "1112" 
       %option{:value => 1113, :selected => params[:x] == "1113"}= "1113" 
@@ -128,8 +129,7 @@
       %option{:value => 5913, :selected => params[:x] == "5913"}= "5913" 
       %option{:value => 5914, :selected => params[:x] == "5914"}= "5914" 
       %option{:value => 5915, :selected => params[:x] == "5915"}= "5915"
-      = text_field_tag :filter, '', class: "search", placeholder: "Type name here", autocomplete: "off"
-      %button.btn.disabled{type: "submit"}
+      %button.btn{type: "submit"}
         %i.icon.icon-search
   %table
     %thead
@@ -143,7 +143,10 @@
           %td= applicant.fname
           %td= applicant.lname
           %td= applicant.email
+          %td= applicant.classOne
+
 
   = smart_listing.paginate 
 - else
   %p.warning No records!
+  %a{ :href => "../applicants", :title => "back" }Back

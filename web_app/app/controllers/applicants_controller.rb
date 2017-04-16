@@ -6,9 +6,16 @@ class ApplicantsController < ApplicationController
   # GET /applicants
   # GET /applicants.json
   def index
-
+    @courses = Course.all
     applicants_scope = Applicant.all
-    applicants_scope = applicants_scope.like(params[:filter]) if params[:filter]
+    filt = params[:filter].to_i
+
+    if filt != 0
+      applicants_scope = Applicant.filter_by_course(filt)
+    end
+      #(:classOne == filt) || (:classTwo == filt) || (:classThree == filt))  if params[:filter]
+    puts filt
+    #applicants_scope = Applicant.all.like(params[:filter]) if params[:filter]
     @applicants = smart_listing_create :applicants, applicants_scope, partial: "applicants/listing"
       end
 
