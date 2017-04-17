@@ -1,8 +1,9 @@
 - unless smart_listing.empty?
   = smart_listing_controls_for(:applicants) do
     .filter.input-append
+    %p Selected: CSE #{@filterselected}.#{@sectionselected}
     %label CSE
-    %select{:name => "filter"}
+    %select{:name => "filter", :value => @filterselected}
       %option{:value => 0, :selected => params[:x] == "0"}= "0" 
       %option{:value => 1110, :selected => params[:x] == "1110"}= "1110" 
       %option{:value => 1111, :selected => params[:x] == "1111"}= "1111" 
@@ -131,22 +132,29 @@
       %option{:value => 5915, :selected => params[:x] == "5915"}= "5915"
       %button.btn{type: "submit"}
         %i.icon.icon-search
+    %select{:name => "sect", :value => @sectionselected}
+      - @sections.each do |sec|
+        %option{:value => sec, :selected => params[:y] == sec}=sec
   %table
     %thead
       %tr 
-        %th First
-        %th Last
-        %th Email
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} First
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Last
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Email
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Course Pref
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} References
     %tbody
       - smart_listing.collection.each do |applicant|
         %tr
-          %td= applicant.fname
-          %td= applicant.lname
-          %td= applicant.email
-          %td= applicant.classOne
+          %td{:style => "padding-right:20px; padding-top:10px; text-align: center"}= applicant.fname
+          %td{:style => "padding-right:20px; text-align: center"}= applicant.lname
+          %td{:style => "padding-right:20px; text-align: center"}= applicant.email
+          %td{:style => "padding-right:20px; text-align: center"}= applicant.classOne
+          %td{:style => "padding-right:20px; text-align: center"}
+            %a{:href => "../../recommendations"}= applicant.references ||= 0
 
 
   = smart_listing.paginate 
 - else
-  %p.warning No records!
+  %p.warning No applicants found!
   %a{ :href => "../applicants", :title => "back" }Back

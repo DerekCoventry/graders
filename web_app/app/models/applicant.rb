@@ -2,8 +2,9 @@ class Applicant < ApplicationRecord
 	has_many :schedule
 	has_many :course
 	paginates_per 50
+	max_paginates_per 50
 	def self.filter_by_course(course)
-	    where('classOne == ? AND classTwo == ? AND classThree == ?', course, course, course)
+	    where('classOne == ? OR classTwo == ? OR classThree == ?', course, course, course)
 	end
 	def self.filter_hours(params)
 		where('((mondayStartFirst >= ? AND mondayEndFirst <= ?) OR (mondayStartSecond >= ? AND mondayEndSecond <= ?)) 
