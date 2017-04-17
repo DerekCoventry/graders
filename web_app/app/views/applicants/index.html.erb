@@ -2,36 +2,5 @@
 
 <h1>Applicants</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Fname</th>
-      <th>Lname</th>
-      <th>Year</th>
-      <th>Email</th>
-      <th>Schedule</th>
-      <th>Available</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= smart_listing_render(:applicants) %>
 
-  <tbody>
-    <% @applicants.each do |applicant| %>
-      <tr>
-        <td><%= applicant.fname %></td>
-        <td><%= applicant.lname %></td>
-        <td><%= applicant.year %></td>
-        <td><%= applicant.email %></td>
-        <td><%= applicant.schedule %></td>
-        <td><%= applicant.available %></td>
-        <td><%= link_to 'Show', applicant %></td>
-        <td><%= link_to 'Edit', edit_applicant_path(applicant) %></td>
-        <td><%= link_to 'Destroy', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Applicant', new_applicant_path %>

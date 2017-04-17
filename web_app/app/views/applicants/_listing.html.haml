@@ -1,0 +1,160 @@
+- unless smart_listing.empty?
+  = smart_listing_controls_for(:applicants) do
+    .filter.input-append
+    %p Selected: CSE #{@filterselected}.#{@sectionselected}
+    %label CSE
+    %select{:name => "filter", :value => @filterselected}
+      %option{:value => 0, :selected => params[:x] == "0"}= "0" 
+      %option{:value => 1110, :selected => params[:x] == "1110"}= "1110" 
+      %option{:value => 1111, :selected => params[:x] == "1111"}= "1111" 
+      %option{:value => 1112, :selected => params[:x] == "1112"}= "1112" 
+      %option{:value => 1113, :selected => params[:x] == "1113"}= "1113" 
+      %option{:value => 1114, :selected => params[:x] == "1114"}= "1114" 
+      %option{:value => 1211, :selected => params[:x] == "1211"}= "1211" 
+      %option{:value => 1212, :selected => params[:x] == "1212"}= "1212" 
+      %option{:value => 1221, :selected => params[:x] == "1221"}= "1221" 
+      %option{:value => 1222, :selected => params[:x] == "1222"}= "1222" 
+      %option{:value => 1223, :selected => params[:x] == "1223"}= "1223" 
+      %option{:value => 2021, :selected => params[:x] == "2021"}= "2021" 
+      %option{:value => 2111, :selected => params[:x] == "2111"}= "2111" 
+      %option{:value => 2112, :selected => params[:x] == "2112"}= "2112" 
+      %option{:value => 2122, :selected => params[:x] == "2122"}= "2122" 
+      %option{:value => 2123, :selected => params[:x] == "2123"}= "2123" 
+      %option{:value => 2133, :selected => params[:x] == "2133"}= "2133" 
+      %option{:value => 2193, :selected => params[:x] == "2193"}= "2193" 
+      %option{:value => 2193, :selected => params[:x] == "2193"}= "2193" 
+      %option{:value => 2194, :selected => params[:x] == "2194"}= "2194" 
+      %option{:value => 2194, :selected => params[:x] == "2194"}= "2194" 
+      %option{:value => 2221, :selected => params[:x] == "2221"}= "2221" 
+      %option{:value => 2222, :selected => params[:x] == "2222"}= "2222" 
+      %option{:value => 2231, :selected => params[:x] == "2231"}= "2231" 
+      %option{:value => 2231, :selected => params[:x] == "2231"}= "2231" 
+      %option{:value => 2232, :selected => params[:x] == "2232"}= "2232" 
+      %option{:value => 2321, :selected => params[:x] == "2321"}= "2321" 
+      %option{:value => 2331, :selected => params[:x] == "2331"}= "2331" 
+      %option{:value => 2421, :selected => params[:x] == "2421"}= "2421" 
+      %option{:value => 2431, :selected => params[:x] == "2431"}= "2431" 
+      %option{:value => 2451, :selected => params[:x] == "2451"}= "2451" 
+      %option{:value => 2501, :selected => params[:x] == "2501"}= "2501" 
+      %option{:value => 3231, :selected => params[:x] == "3231"}= "3231" 
+      %option{:value => 3232, :selected => params[:x] == "3232"}= "3232" 
+      %option{:value => 3241, :selected => params[:x] == "3241"}= "3241" 
+      %option{:value => 3321, :selected => params[:x] == "3321"}= "3321" 
+      %option{:value => 3341, :selected => params[:x] == "3341"}= "3341" 
+      %option{:value => 3421, :selected => params[:x] == "3421"}= "3421" 
+      %option{:value => 3430, :selected => params[:x] == "3430"}= "3430" 
+      %option{:value => 3461, :selected => params[:x] == "3461"}= "3461" 
+      %option{:value => 3521, :selected => params[:x] == "3521"}= "3521" 
+      %option{:value => 3541, :selected => params[:x] == "3541"}= "3541" 
+      %option{:value => 3901, :selected => params[:x] == "3901"}= "3901" 
+      %option{:value => 3902, :selected => params[:x] == "3902"}= "3902" 
+      %option{:value => 3903, :selected => params[:x] == "3903"}= "3903" 
+      %option{:value => 4191, :selected => params[:x] == "4191"}= "4191" 
+      %option{:value => 4193, :selected => params[:x] == "4193"}= "4193" 
+      %option{:value => 4193, :selected => params[:x] == "4193"}= "4193" 
+      %option{:value => 4194, :selected => params[:x] == "4194"}= "4194" 
+      %option{:value => 4194, :selected => params[:x] == "4194"}= "4194" 
+      %option{:value => 4251, :selected => params[:x] == "4251"}= "4251" 
+      %option{:value => 4252, :selected => params[:x] == "4252"}= "4252" 
+      %option{:value => 4253, :selected => params[:x] == "4253"}= "4253" 
+      %option{:value => 4254, :selected => params[:x] == "4254"}= "4254" 
+      %option{:value => 4255, :selected => params[:x] == "4255"}= "4255" 
+      %option{:value => 4471, :selected => params[:x] == "4471"}= "4471" 
+      %option{:value => 4998, :selected => params[:x] == "4998"}= "4998" 
+      %option{:value => 4998, :selected => params[:x] == "4998"}= "4998" 
+      %option{:value => 4999, :selected => params[:x] == "4999"}= "4999" 
+      %option{:value => 4999, :selected => params[:x] == "4999"}= "4999" 
+      %option{:value => 5022, :selected => params[:x] == "5022"}= "5022" 
+      %option{:value => 5023, :selected => params[:x] == "5023"}= "5023" 
+      %option{:value => 5032, :selected => params[:x] == "5032"}= "5032" 
+      %option{:value => 5042, :selected => params[:x] == "5042"}= "5042" 
+      %option{:value => 5043, :selected => params[:x] == "5043"}= "5043" 
+      %option{:value => 5052, :selected => params[:x] == "5052"}= "5052" 
+      %option{:value => 5194, :selected => params[:x] == "5194"}= "5194" 
+      %option{:value => 5194, :selected => params[:x] == "5194"}= "5194" 
+      %option{:value => 5231, :selected => params[:x] == "5231"}= "5231" 
+      %option{:value => 5232, :selected => params[:x] == "5232"}= "5232" 
+      %option{:value => 5234, :selected => params[:x] == "5234"}= "5234" 
+      %option{:value => 5235, :selected => params[:x] == "5235"}= "5235" 
+      %option{:value => 5236, :selected => params[:x] == "5236"}= "5236" 
+      %option{:value => 5239, :selected => params[:x] == "5239"}= "5239" 
+      %option{:value => 5241, :selected => params[:x] == "5241"}= "5241" 
+      %option{:value => 5242, :selected => params[:x] == "5242"}= "5242" 
+      %option{:value => 5243, :selected => params[:x] == "5243"}= "5243" 
+      %option{:value => 5245, :selected => params[:x] == "5245"}= "5245" 
+      %option{:value => 5249, :selected => params[:x] == "5249"}= "5249" 
+      %option{:value => 5321, :selected => params[:x] == "5321"}= "5321" 
+      %option{:value => 5329, :selected => params[:x] == "5329"}= "5329" 
+      %option{:value => 5331, :selected => params[:x] == "5331"}= "5331" 
+      %option{:value => 5339, :selected => params[:x] == "5339"}= "5339" 
+      %option{:value => 5341, :selected => params[:x] == "5341"}= "5341" 
+      %option{:value => 5343, :selected => params[:x] == "5343"}= "5343" 
+      %option{:value => 5349, :selected => params[:x] == "5349"}= "5349" 
+      %option{:value => 5351, :selected => params[:x] == "5351"}= "5351" 
+      %option{:value => 5359, :selected => params[:x] == "5359"}= "5359" 
+      %option{:value => 5361, :selected => params[:x] == "5361"}= "5361" 
+      %option{:value => 5421, :selected => params[:x] == "5421"}= "5421" 
+      %option{:value => 5429, :selected => params[:x] == "5429"}= "5429" 
+      %option{:value => 5431, :selected => params[:x] == "5431"}= "5431" 
+      %option{:value => 5432, :selected => params[:x] == "5432"}= "5432" 
+      %option{:value => 5433, :selected => params[:x] == "5433"}= "5433" 
+      %option{:value => 5434, :selected => params[:x] == "5434"}= "5434" 
+      %option{:value => 5439, :selected => params[:x] == "5439"}= "5439" 
+      %option{:value => 5441, :selected => params[:x] == "5441"}= "5441" 
+      %option{:value => 5449, :selected => params[:x] == "5449"}= "5449" 
+      %option{:value => 5461, :selected => params[:x] == "5461"}= "5461" 
+      %option{:value => 5462, :selected => params[:x] == "5462"}= "5462" 
+      %option{:value => 5463, :selected => params[:x] == "5463"}= "5463" 
+      %option{:value => 5469, :selected => params[:x] == "5469"}= "5469" 
+      %option{:value => 5472, :selected => params[:x] == "5472"}= "5472" 
+      %option{:value => 5473, :selected => params[:x] == "5473"}= "5473" 
+      %option{:value => 5479, :selected => params[:x] == "5479"}= "5479" 
+      %option{:value => 5501, :selected => params[:x] == "5501"}= "5501" 
+      %option{:value => 5521, :selected => params[:x] == "5521"}= "5521" 
+      %option{:value => 5522, :selected => params[:x] == "5522"}= "5522" 
+      %option{:value => 5523, :selected => params[:x] == "5523"}= "5523" 
+      %option{:value => 5524, :selected => params[:x] == "5524"}= "5524" 
+      %option{:value => 5525, :selected => params[:x] == "5525"}= "5525" 
+      %option{:value => 5526, :selected => params[:x] == "5526"}= "5526" 
+      %option{:value => 5531, :selected => params[:x] == "5531"}= "5531" 
+      %option{:value => 5539, :selected => params[:x] == "5539"}= "5539" 
+      %option{:value => 5541, :selected => params[:x] == "5541"}= "5541" 
+      %option{:value => 5542, :selected => params[:x] == "5542"}= "5542" 
+      %option{:value => 5543, :selected => params[:x] == "5543"}= "5543" 
+      %option{:value => 5544, :selected => params[:x] == "5544"}= "5544" 
+      %option{:value => 5545, :selected => params[:x] == "5545"}= "5545" 
+      %option{:value => 5559, :selected => params[:x] == "5559"}= "5559" 
+      %option{:value => 5891, :selected => params[:x] == "5891"}= "5891" 
+      %option{:value => 5911, :selected => params[:x] == "5911"}= "5911" 
+      %option{:value => 5912, :selected => params[:x] == "5912"}= "5912" 
+      %option{:value => 5913, :selected => params[:x] == "5913"}= "5913" 
+      %option{:value => 5914, :selected => params[:x] == "5914"}= "5914" 
+      %option{:value => 5915, :selected => params[:x] == "5915"}= "5915"
+      %button.btn{type: "submit"}
+        %i.icon.icon-search
+    %select{:name => "sect", :value => @sectionselected}
+      - @sections.each do |sec|
+        %option{:value => sec, :selected => params[:y] == sec}=sec
+  %table
+    %thead
+      %tr 
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} First
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Last
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Email
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Course Pref
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} References
+    %tbody
+      - smart_listing.collection.each do |applicant|
+        %tr
+          %td{:style => "padding-right:20px; padding-top:10px; text-align: center"}= applicant.fname
+          %td{:style => "padding-right:20px; text-align: center"}= applicant.lname
+          %td{:style => "padding-right:20px; text-align: center"}= applicant.email
+          %td{:style => "padding-right:20px; text-align: center"}= applicant.classOne
+          %td{:style => "padding-right:20px; text-align: center"}
+            %a{:href => "../../recommendations"}= applicant.references ||= 0
+
+
+  = smart_listing.paginate 
+- else
+  %p.warning No applicants found!
+  %a{ :href => "../applicants", :title => "back" }Back

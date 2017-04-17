@@ -1,0 +1,82 @@
+<%= form_for(course) do |f| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sectionNumber %>
+    <%= f.number_field :sectionNumber %>
+  </div>
+
+  <div class="field">
+    <%= f.label :courseNumber %>
+    <%= f.number_field :courseNumber %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mondayStart %>
+    <%= f.number_field :mondayStart %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mondayEnd %>
+    <%= f.number_field :mondayEnd %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tuesdayStart %>
+    <%= f.number_field :tuesdayStart %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tuesdayEnd %>
+    <%= f.number_field :tuesdayEnd %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wednesdayStart %>
+    <%= f.number_field :wednesdayStart %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wednesdayEnd %>
+    <%= f.number_field :wednesdayEnd %>
+  </div>
+
+  <div class="field">
+    <%= f.label :thursdayStart %>
+    <%= f.number_field :thursdayStart %>
+  </div>
+
+  <div class="field">
+    <%= f.label :thursdayEnd %>
+    <%= f.number_field :thursdayEnd %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fridayStart %>
+    <%= f.number_field :fridayStart %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fridayEnd %>
+    <%= f.number_field :fridayEnd %>
+  </div>
+
+  <div class="field">
+    <%= f.label :professor %>
+    <%= f.text_field :professor %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

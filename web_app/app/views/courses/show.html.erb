@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sectionnumber:</strong>
+  <%= @course.sectionNumber %>
+</p>
+
+<p>
+  <strong>Coursenumber:</strong>
+  <%= @course.courseNumber %>
+</p>
+
+<p>
+  <strong>Mondaystart:</strong>
+  <%= @course.mondayStart %>
+</p>
+
+<p>
+  <strong>Mondayend:</strong>
+  <%= @course.mondayEnd %>
+</p>
+
+<p>
+  <strong>Tuesdaystart:</strong>
+  <%= @course.tuesdayStart %>
+</p>
+
+<p>
+  <strong>Tuesdayend:</strong>
+  <%= @course.tuesdayEnd %>
+</p>
+
+<p>
+  <strong>Wednesdaystart:</strong>
+  <%= @course.wednesdayStart %>
+</p>
+
+<p>
+  <strong>Wednesdayend:</strong>
+  <%= @course.wednesdayEnd %>
+</p>
+
+<p>
+  <strong>Thursdaystart:</strong>
+  <%= @course.thursdayStart %>
+</p>
+
+<p>
+  <strong>Thursdayend:</strong>
+  <%= @course.thursdayEnd %>
+</p>
+
+<p>
+  <strong>Fridaystart:</strong>
+  <%= @course.fridayStart %>
+</p>
+
+<p>
+  <strong>Fridayend:</strong>
+  <%= @course.fridayEnd %>
+</p>
+
+<p>
+  <strong>Professor:</strong>
+  <%= @course.professor %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

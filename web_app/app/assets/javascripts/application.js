@@ -15,3 +15,14 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+//= require smart_listing
+$(function() {
+  $("#applicants th a, #applicants .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#applicants_search input").keyup(function() {
+    $.get($("#applicants_search").attr("action"), $("#applicants_search").serialize(), null, "script");
+    return false;
+  });
+});
