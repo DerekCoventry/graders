@@ -1,5 +1,5 @@
 #scraper to get courses and course information
-
+#hope this works
 require 'nokogiri'
 require 'mechanize'
 require 'open-uri'
