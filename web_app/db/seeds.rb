@@ -51,7 +51,19 @@ end
 # #Applicant.create!(appid: 1, fname: 'Derek', lname: 'test', year: 3, email: 'coventrytest@gmail.com', available:  true)
 
 # #Schedule.create!(mondayStart: 6, mondayEnd: 8, tuesdayStart: 6, tuesdayEnd: 8, wednesdayStart: 6, wednesdayEnd: 8, thursdayStart: 6, thursdayEnd: 8, fridayStart: 6, fridayEnd: 8, Applicantid: 1, scheduleid: 1)
-
+#Course.create!(courseNumber: 1110,
+#			mondayStart: 800,
+#			mondayEnd: 855,
+#			tuesdayStart: nil,
+#			tuesdayEnd: nil,
+#			wednesdayStart: 800,
+#			wednesdayEnd: 855,
+#			thursdayStart: nil,
+#			thursdayEnd: nil,
+##			fridayStart: 800,
+#			fridayEnd: 855,
+#			professor: nil,
+#			sectionNumber: '6846')
 # Applicant.create!(fname: 'Test1110',
 # 					lname: 'Dummy', 
 # 					year: '3', 
