@@ -109,7 +109,7 @@ trList.shift()
 trList.shift()
 count = 0
 trList.each do |s|
-	if (s.text.match(Date.today.year.to_s) != nil) then
+	if (s.text.match(Date.today.year.to_s) != nil || s.text.match((Date.today.year + 1).to_s)) then
 		count += 1
 	end
 end
@@ -139,7 +139,7 @@ for a in 0..trLinks.length-1 do
 	end
 	file = File.open("#{semName} #{semYear} Course Schedule.json", "w")
 
-
+	# loop to split page into lines per course offering
 	for i in 0..courseList.length-1 do	
 		text = courseList[i].to_s.split("   ")
 		text.delete_if { |x| x.length == 0 }
@@ -147,6 +147,7 @@ for a in 0..trLinks.length-1 do
 			x.strip!
 		end
 
+		# loop to parse each line and save required data to the arrays
 		for j in 0..text.length - 1 do
 			if switch then
 				daysList = [false, false, false, false, false]
@@ -204,7 +205,6 @@ for a in 0..trLinks.length-1 do
 			elsif(text[j].index(/[A-Z]/) != nil) then 
 				addDay(daysList, (text[j])[0])
 				switch = false
-			else 
 			end
 		end	
 	end
@@ -218,11 +218,10 @@ for a in 0..trLinks.length-1 do
 	h["wednesdayEnd"]= WEDNESDAYEND
 	h["thursdayStart"]= THURSDAYSTART
 	h["thursdayEnd"]= THURSDAYEND
-	h["firdayStart"]= FRIDAYSTART
+	h["fridayStart"]= FRIDAYSTART
 	h["fridayEnd"]= FRIDAYEND
 	h["professor"]= PROFESSOR
 	h["sectionNumber"]= SECTIONNUMBER
-	file.puts (JSON.pretty_generate(h))  #change pretty to fast to get json in one line
+	file.puts (JSON.fast_generate(h))  #use pretty_generate for processed output, fast_generate to get json in one line
 	file.close
 end
-
