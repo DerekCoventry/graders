@@ -1,3 +1,4 @@
+<% if 
 ['agrawal.28@osu.edu',
 'arora.9@osu.edu',
 'babic.1@osu.edu',
@@ -136,4 +137,14 @@
 'zhang.8151@osu.edu',
 'zhang.834@osu.edu',
 'ziniel.1@osu.edu',
-'zweben.1@osu.edu']
+'zweben.1@osu.edu'].include? current_user.email do %>
+<%  current_user.professor = true %>
+
+	<%end %>
+<% end %>
+
+<% if current_user.professor? do %>
+	<p>Success, don't make me regret giving you permissions to these records, buddy.</p>
+<% end %>
+<% end %>
+

@@ -21,20 +21,26 @@ class ApplicantsController < ApplicationController
     @filterselected = filt.to_s
     sect = params[:sect].to_i
     @sectionselected = sect.to_s
+    puts sect
     if filt != 0
-      @courses = @courses.filter_course_num(filt)
+      @courses = @courses.filter_course_num(params[:filter].to_i)
       @sections = [0] + @courses.all.map{|s| s.sectionNumber}
       if sect != 0
-        course_searched = @courses.filter_course_sect(sect)
-        applicants_scope = Applicant.filter_by_course(filt)
+        course_searched = @courses.filter_course_sect(params[:sect].to_s)
+        x=0
+        course_searched.each do |c|
+          x=c.id
+        end
+        course_searched = course_searched.find x
+        applicants_scope = Applicant.filter_by_course(params[:filter].to_i)
         applicants_scope = applicants_scope.filter_hours([
-          course_searched.mondayStart, course_searched.mondayEnd, 
-          course_searched.tuesdayStart, course_searched.tuesdayEnd, 
-          course_searched.wednesdayStart, course_searched.wednesdayEnd, 
-          course_searched.thursdayStart, course_searched.thursdayEnd, 
-          course_searched.fridayStart, course_searched.fridayEnd])
+          course_searched.mondayStart || 9999, course_searched.mondayEnd || 0, 
+          course_searched.tuesdayStart || 9999, course_searched.tuesdayEnd || 0, 
+          course_searched.wednesdayStart || 9999, course_searched.wednesdayEnd || 0, 
+          course_searched.thursdayStart || 9999, course_searched.thursdayEnd || 0, 
+          course_searched.fridayStart || 9999, course_searched.fridayEnd || 0])
       else
-        applicants_scope = Applicant.filter_by_course(filt)
+        applicants_scope = Applicant.filter_by_course(params[:filter])
       end
     end
       #(:classOne == filt) || (:classTwo == filt) || (:classThree == filt))  if params[:filter]
