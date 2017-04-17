@@ -1,3 +1,9 @@
 class Course < ApplicationRecord
-	paginates_per 50
+
+	def self.filter_course_num(course)
+	    where('courseNumber == ?', course)
+	end
+	def self.filter_course_sect(section)
+	    where('sectionNumber == ?', section)
+	end
 end

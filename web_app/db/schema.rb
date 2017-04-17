@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416030653) do
+ActiveRecord::Schema.define(version: 20170417150427) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "fname"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170416030653) do
     t.string   "classOne"
     t.string   "classTwo"
     t.string   "classThree"
+    t.integer  "references"
     t.index ["schedule_id"], name: "index_applicants_on_schedule_id"
   end
 
