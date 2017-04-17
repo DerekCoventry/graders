@@ -1,9 +1,5 @@
 require 'json'
-require 'date'
 load 'scrape_courses.rb'
-
-month = Date::MONTHNAMES[Date.today.month]
-if month 
 
 file = File.open("Su 2017 Course Schedule.json", "r")
 lines = IO.readlines(file) 
