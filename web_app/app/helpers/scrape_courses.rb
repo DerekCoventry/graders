@@ -208,20 +208,21 @@ for a in 0..trLinks.length-1 do
 			end
 		end	
 	end
-	h = Hash.new
-	h["courseNumber"] = COURSENUMBER
-	h["mondayStart"]= MONDAYSTART
-	h["mondayEnd"]= MONDAYEND
-	h["tuesdayStart"]= TUESDAYSTART
-	h["tuesdayEnd"]= TUESDAYEND
-	h["wednesdayStart"]= WEDNESDAYSTART
-	h["wednesdayEnd"]= WEDNESDAYEND
-	h["thursdayStart"]= THURSDAYSTART
-	h["thursdayEnd"]= THURSDAYEND
-	h["fridayStart"]= FRIDAYSTART
-	h["fridayEnd"]= FRIDAYEND
-	h["professor"]= PROFESSOR
-	h["sectionNumber"]= SECTIONNUMBER
-	file.puts (JSON.fast_generate(h))  #use pretty_generate for processed output, fast_generate to get json in one line
+	h = Course.new
+	h.courseNumber  = COURSENUMBER
+	h.mondayStart = MONDAYSTART
+	h.mondayEnd = MONDAYEND
+	h.tuesdayStart = TUESDAYSTART
+	h.tuesdayEnd = TUESDAYEND
+	h.wednesdayStart = WEDNESDAYSTART
+	h.wednesdayEnd = WEDNESDAYEND
+	h.thursdayStart = THURSDAYSTART
+	h.thursdayEnd = THURSDAYEND
+	h.fridayStart = FRIDAYSTART
+	h.fridayEnd = FRIDAYEND
+	h.professor = PROFESSOR
+	h.sectionNumber = SECTIONNUMBER
+	h.save
+	#file.puts (JSON.fast_generate(h))  #use pretty_generate for processed output, fast_generate to get json in one line
 	file.close
 end

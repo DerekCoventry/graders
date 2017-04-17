@@ -1,6 +1,6 @@
 - unless smart_listing.empty?
   = smart_listing_controls_for(:applicants) do
-    .filter.input-append
+    .form-group.filter.input-append
     %p Selected: CSE #{@filterselected}.#{@sectionselected}
     %label CSE
     %select{:name => "filter", :value => @filterselected}
@@ -130,11 +130,12 @@
       %option{:value => 5913, :selected => params[:x] == "5913"}= "5913" 
       %option{:value => 5914, :selected => params[:x] == "5914"}= "5914" 
       %option{:value => 5915, :selected => params[:x] == "5915"}= "5915"
-      %button.btn{type: "submit"}
-        %i.icon.icon-search
     %select{:name => "sect", :value => @sectionselected}
       - @sections.each do |sec|
         %option{:value => sec, :selected => params[:y] == sec}=sec
+    %button{type: "submit"}
+      %i.icon.icon-search
+
   %table
     %thead
       %tr 

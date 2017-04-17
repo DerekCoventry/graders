@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'authenticate/index'
+
+  get 'authenticate/email'
+  get 'authenticate/confirm'
+
   resources :courses
   resources :recommendations
   get 'professors/index'
