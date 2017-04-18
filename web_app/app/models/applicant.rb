@@ -3,6 +3,7 @@ class Applicant < ApplicationRecord
 	has_many :course
 	paginates_per 50
 	max_paginates_per 50
+	validates :email, presence: true
 	def self.filter_by_email(emailCheck)
 		where('email == ?', emailCheck)
 	end
