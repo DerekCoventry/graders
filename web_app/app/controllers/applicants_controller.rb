@@ -70,7 +70,7 @@ class ApplicantsController < ApplicationController
         #applicants_scope = Applicant.all.like(params[:filter]) if params[:filter]
         @applicants = smart_listing_create :applicants, applicants_scope, partial: "applicants/listing"
       else
-        @applicants_scope = @applicants.filter_by_email(current_user.email)
+        @applicants_scope = Applicant.filter_by_email(current_user.email)
         @applicants = smart_listing_create  :applicants, @applicants_scope, partial: "applicants/self" 
       end
           
