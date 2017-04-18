@@ -9,6 +9,7 @@ class ApplicantsController < ApplicationController
     if user_signed_in? 
       if current_user.professor 
         @courses = Course.all
+        @course_num = [0] + Course.all.map{|c| c.courseNumber}
         @references = Recommendation.all
         @sections = [0] + @courses.all.map{|s| s.sectionNumber}
         @applicants = Applicant.filter_by_looking()
@@ -35,17 +36,23 @@ class ApplicantsController < ApplicationController
         sect = params[:sect].to_i
         @sectionselected = sect.to_s
         puts sect
-        if filt != 0
+        if params[:filter].to_i != 0
           @courses = @courses.filter_course_num(params[:filter].to_i)
           @sections = [0] + @courses.all.map{|s| s.sectionNumber}
-          if sect != 0
-            course_searched = @courses.filter_course_sect(params[:sect].to_s)
+          if params[:sect].to_i != 0
+
+              course_searched = @courses.filter_course_sect(params[:sect].to_s)
             x=0
             course_searched.each do |c|
               x=c.id
             end
             course_searched = course_searched.find x
-            applicants_scope = Applicant.filter_by_course(params[:filter].to_i)
+            puts params[:pref]
+            if params[:pref] != "on"
+              applicants_scope = @applicants.filter_by_course(params[:filter].to_i)
+            else
+              applicants_scope = @applicants.filter_by_course_loose(params[:filter].to_i)
+            end
             applicants_scope = applicants_scope.filter_hours([
               course_searched.mondayStart || 9999, course_searched.mondayEnd || 0, 
               course_searched.tuesdayStart || 9999, course_searched.tuesdayEnd || 0, 
@@ -53,17 +60,17 @@ class ApplicantsController < ApplicationController
               course_searched.thursdayStart || 9999, course_searched.thursdayEnd || 0, 
               course_searched.fridayStart || 9999, course_searched.fridayEnd || 0])
           else
-            applicants_scope = Applicant.filter_by_course(params[:filter])
+            applicants_scope = @applicants.filter_by_course(params[:filter])
           end
         else
-          @applicants = Applicant.filter_by_email(current_user.email)
+          @applicants = @applicants.filter_by_email(current_user.email)
 
         end
           #(:classOne == filt) || (:classTwo == filt) || (:classThree == filt))  if params[:filter]
         #applicants_scope = Applicant.all.like(params[:filter]) if params[:filter]
         @applicants = smart_listing_create :applicants, applicants_scope, partial: "applicants/listing"
       else
-        @applicants_scope = Applicant.filter_by_email(current_user.email)
+        @applicants_scope = @applicants.filter_by_email(current_user.email)
         @applicants = smart_listing_create  :applicants, @applicants_scope, partial: "applicants/self" 
       end
           
