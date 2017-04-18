@@ -1,7 +1,24 @@
 require 'json'
-load 'scrape_courses.rb'
+require 'date'
+load './db/scrape_courses.rb'
 
-file = File.open("Su 2017 Course Schedule.json", "r")
+year = Date.today.year
+month = Date::MONTHNAMES[Date.today.month]
+if (month == 'January' || month == 'February' || month == 'March' || month == 'April') then
+	semName = 'Su'
+elsif (month == 'May' || month == 'June' || month == 'July' || month == 'August') then
+	semName = 'Au'
+else
+	semName = 'Sp'
+end
+if semName == 'Sp' then
+	semYear = year + 1
+else
+	semYear = year
+end
+		
+
+file = File.open("#{semName} #{semYear} Course Schedule.json", "r")
 lines = IO.readlines(file) 
 file.close
 a_hash = JSON.parse(lines[0].to_s)
@@ -28,9 +45,6 @@ for i in 0..iter - 1 do
 								sectionNumber: ((a_arr[12])[1])[i],
 								)
 end
-
-
-
 
 
 
