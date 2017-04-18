@@ -1,0 +1,43 @@
+- unless smart_listing.empty?
+  = smart_listing_controls_for(:courses) do
+    .form-group.filter.input-append
+    %p Selected: CSE #{@filterselected}.#{@sectionselected}
+    %label CSE
+    %select{:name => "filter", :value => @filterselected}
+      - @course_num.uniq.each do |sec|
+        %option{:value => sec, :selected => params[:y] == sec}=sec
+    %select{:name => "sect", :value => @sectionselected}
+      - @sections.uniq.each do |sec|
+        %option{:value => sec, :selected => params[:y] == sec}=sec
+    %button{type: "submit"}
+      %i.glyphicon.glyphicon-search
+
+  %table
+    %thead
+      %tr
+        %th{:colspan => 3}
+        %th{:colspan => 4, :style => "border-bottom:1px solid black; text-align:center"} Graders
+      %tr 
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Course
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Section
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Professor
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} One
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Two
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Three
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Four
+    %tbody
+      - smart_listing.collection.each do |course|
+        %tr
+          %td{:style => "padding-right:20px; padding-top:10px; text-align: center"}= course.courseNumber
+          %td{:style => "padding-right:20px; text-align: center"}= course.sectionNumber
+          %td{:style => "padding-right:20px; text-align: center"}= (course.professor || "Undetermined")
+          %td{:style => "padding-right:20px; text-align: center"}= (course.graderOne || "None")
+          %td{:style => "padding-right:20px; text-align: center"}= (course.graderTwo || "None")
+          %td{:style => "padding-right:20px; text-align: center"}= (course.graderThree || "None")
+          %td{:style => "padding-right:20px; text-align: center"}= (course.graderFour || "None")
+
+
+  = smart_listing.paginate 
+- else
+  %p.warning No courses found!
+  %a{ :href => "../courses", :title => "back" }Back

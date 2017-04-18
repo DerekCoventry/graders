@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'authenticate/email'
   get 'authenticate/confirm'
-
+  get 'courses/addgrader'
   resources :courses
   resources :recommendations
   get 'professors/index'

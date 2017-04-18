@@ -126,7 +126,17 @@ for a in 0..trLinks.length-1 do
 	linkPage = Nokogiri::HTML(open(linkSource.uri.to_s))
 	textPart = (linkPage.css("p")).to_a
 	info = textPart[0].to_s
-	courses = info.partition(/LMA/)[0]
+	if info.match(/LMA/) != nil then
+		courses = info.partition(/LMA/)[0]
+	elsif info.match(/MNS/) != nil then
+		courses = info.partition(/MNS/)[0]
+	elsif info.match(/MRN/) != nil then
+		courses = info.partition(/MRN/)[0]
+	elsif info.match(/NWK/) != nil then
+		courses = info.partition(/NWK/)[0]
+	else
+		courses = info.partition(/INDepen/)[0]
+	end
 	semName = courses.slice(21, 2)
 	semYear = courses.slice(28, 4)
 	courses = courses.slice!(160, courses.length-1)
