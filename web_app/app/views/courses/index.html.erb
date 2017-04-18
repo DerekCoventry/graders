@@ -5,19 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Sectionnumber</th>
-      <th>Coursenumber</th>
-      <th>Mondaystart</th>
-      <th>Mondayend</th>
-      <th>Tuesdaystart</th>
-      <th>Tuesdayend</th>
-      <th>Wednesdaystart</th>
-      <th>Wednesdayend</th>
-      <th>Thursdaystart</th>
-      <th>Thursdayend</th>
-      <th>Fridaystart</th>
-      <th>Fridayend</th>
-      <th>Professor</th>
+      <th style="padding-right: 10px">Section</th>
+      <th style="padding-right: 10px">Course</th>
+      <th style="padding-right: 10px">Professor</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,22 +15,12 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td><%= course.sectionNumber %></td>
-        <td><%= course.courseNumber %></td>
-        <td><%= course.mondayStart %></td>
-        <td><%= course.mondayEnd %></td>
-        <td><%= course.tuesdayStart %></td>
-        <td><%= course.tuesdayEnd %></td>
-        <td><%= course.wednesdayStart %></td>
-        <td><%= course.wednesdayEnd %></td>
-        <td><%= course.thursdayStart %></td>
-        <td><%= course.thursdayEnd %></td>
-        <td><%= course.fridayStart %></td>
-        <td><%= course.fridayEnd %></td>
-        <td><%= course.professor %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="padding-right: 10px"><%= course.sectionNumber %></td>
+        <td style="padding-right: 10px"><%= course.courseNumber %></td>
+        <td style="padding-right: 10px"><%= course.professor %></td>
+        <td style="padding-right: 10px"><%= link_to 'Show', course %></td>
+        <td style="padding-right: 10px"><%= link_to 'Edit', edit_course_path(course) %></td>
+        <td style="padding-right: 10px"><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

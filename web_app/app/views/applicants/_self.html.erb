@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Last</th>
+      <th>Email</th>
+      <th>Class</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @applicants_scope.each do |applicant| %>
+      <tr>
+        <td style="padding-right:10px"><%= applicant.fname %></td>
+        <td style="padding-right:10px"><%= applicant.lname %></td>
+        <td style="padding-right:10px"><%= applicant.email %></td>
+
+        <td style="padding-right:10px"><%= applicant.classOne %></td>
+        <td style="padding-right:10px"><%= link_to 'Show', applicant %></td>
+        <td style="padding-right:10px"><%= link_to 'Edit', edit_applicant_path(applicant) %></td>
+        <td style="padding-right:10px"><%= link_to 'Destroy', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

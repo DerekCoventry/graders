@@ -6,46 +6,68 @@ class ApplicantsController < ApplicationController
   # GET /applicants
   # GET /applicants.json
   def index
-    @courses = Course.all
-    @references = Recommendation.all
-    @sections = [0] + @courses.all.map{|s| s.sectionNumber}
-    @applicants = Applicant.all
-    @applicants.each do |s| s.references = 0 
-      end
-    @filterselected = "0"
-    @sectionselected = "0"
-    applicants_scope = @applicants
-
-
-    filt = params[:filter].to_i
-    @filterselected = filt.to_s
-    sect = params[:sect].to_i
-    @sectionselected = sect.to_s
-    puts sect
-    if filt != 0
-      @courses = @courses.filter_course_num(params[:filter].to_i)
-      @sections = [0] + @courses.all.map{|s| s.sectionNumber}
-      if sect != 0
-        course_searched = @courses.filter_course_sect(params[:sect].to_s)
-        x=0
-        course_searched.each do |c|
-          x=c.id
+    if user_signed_in? 
+      if current_user.professor 
+        @courses = Course.all
+        @references = Recommendation.all
+        @sections = [0] + @courses.all.map{|s| s.sectionNumber}
+        @applicants = Applicant.filter_by_looking()
+        @applicants.each do |s| 
+          s.references = 0 
+          s.save
+          end
+        @references.each do |r|
+          x = r.semail.to_s
+          @applicants.each do |a|
+            if a.email.to_s == x
+              a.references = a.references + 1
+              a.save
+            end
+          end
         end
-        course_searched = course_searched.find x
-        applicants_scope = Applicant.filter_by_course(params[:filter].to_i)
-        applicants_scope = applicants_scope.filter_hours([
-          course_searched.mondayStart || 9999, course_searched.mondayEnd || 0, 
-          course_searched.tuesdayStart || 9999, course_searched.tuesdayEnd || 0, 
-          course_searched.wednesdayStart || 9999, course_searched.wednesdayEnd || 0, 
-          course_searched.thursdayStart || 9999, course_searched.thursdayEnd || 0, 
-          course_searched.fridayStart || 9999, course_searched.fridayEnd || 0])
+        @filterselected = "0"
+        @sectionselected = "0"
+        applicants_scope = @applicants
+
+
+        filt = params[:filter].to_i
+        @filterselected = filt.to_s
+        sect = params[:sect].to_i
+        @sectionselected = sect.to_s
+        puts sect
+        if filt != 0
+          @courses = @courses.filter_course_num(params[:filter].to_i)
+          @sections = [0] + @courses.all.map{|s| s.sectionNumber}
+          if sect != 0
+            course_searched = @courses.filter_course_sect(params[:sect].to_s)
+            x=0
+            course_searched.each do |c|
+              x=c.id
+            end
+            course_searched = course_searched.find x
+            applicants_scope = Applicant.filter_by_course(params[:filter].to_i)
+            applicants_scope = applicants_scope.filter_hours([
+              course_searched.mondayStart || 9999, course_searched.mondayEnd || 0, 
+              course_searched.tuesdayStart || 9999, course_searched.tuesdayEnd || 0, 
+              course_searched.wednesdayStart || 9999, course_searched.wednesdayEnd || 0, 
+              course_searched.thursdayStart || 9999, course_searched.thursdayEnd || 0, 
+              course_searched.fridayStart || 9999, course_searched.fridayEnd || 0])
+          else
+            applicants_scope = Applicant.filter_by_course(params[:filter])
+          end
+        else
+          @applicants = Applicant.filter_by_email(current_user.email)
+
+        end
+          #(:classOne == filt) || (:classTwo == filt) || (:classThree == filt))  if params[:filter]
+        #applicants_scope = Applicant.all.like(params[:filter]) if params[:filter]
+        @applicants = smart_listing_create :applicants, applicants_scope, partial: "applicants/listing"
       else
-        applicants_scope = Applicant.filter_by_course(params[:filter])
+        @applicants_scope = Applicant.filter_by_email(current_user.email)
+        @applicants = smart_listing_create  :applicants, @applicants_scope, partial: "applicants/self" 
       end
+          
     end
-      #(:classOne == filt) || (:classTwo == filt) || (:classThree == filt))  if params[:filter]
-    #applicants_scope = Applicant.all.like(params[:filter]) if params[:filter]
-    @applicants = smart_listing_create :applicants, applicants_scope, partial: "applicants/listing"
   end
 
   # GET /applicants/1

@@ -3,6 +3,12 @@ class Applicant < ApplicationRecord
 	has_many :course
 	paginates_per 50
 	max_paginates_per 50
+	def self.filter_by_email(emailCheck)
+		where('email == ?', emailCheck)
+	end
+	def self.filter_by_looking()
+		where('available == ?', true)
+	end
 	def self.filter_by_course(course)
 	    where('classOne == ? OR classTwo == ? OR classThree == ?', course, course, course)
 	end
