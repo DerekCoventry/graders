@@ -33,7 +33,7 @@ class CoursesController < ApplicationController
         @courses = smart_listing_create :courses, @courses, partial: "courses/listing"
         puts "ye"
       else
-        @courses = smart_listing_create  :courses,  @courses_searched, partial: "courses/safe" 
+        @courses = smart_listing_create  :courses,  @courses, partial: "courses/safe" 
       end
           
     end

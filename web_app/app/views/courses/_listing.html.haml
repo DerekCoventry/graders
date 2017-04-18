@@ -4,13 +4,13 @@
     %p Selected: CSE #{@filterselected}.#{@sectionselected}
     %label CSE
     %select{:name => "filter", :value => @filterselected}
-      - @course_num.each do |sec|
+      - @course_num.uniq.each do |sec|
         %option{:value => sec, :selected => params[:y] == sec}=sec
     %select{:name => "sect", :value => @sectionselected}
-      - @sections.each do |sec|
+      - @sections.uniq.each do |sec|
         %option{:value => sec, :selected => params[:y] == sec}=sec
     %button{type: "submit"}
-      %i.icon.icon-search
+      %i.glyphicon.glyphicon-search
 
   %table
     %thead
@@ -40,7 +40,7 @@
           %td{:style => "padding-right:20px; text-align: center"}= link_to("Show", "/courses/#{course.id}/edit")
 
 
-  = smart_listing.paginate 
+  = smart_listing.paginate
 - else
   %p.warning No courses found!
   %a{ :href => "../courses", :title => "back" }Back
