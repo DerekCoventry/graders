@@ -16,12 +16,14 @@
     <% if alert %>
       <p class="alert alert-danger" style="margin-bottom:0px"><%= alert %></p>
     <% end %>
-    <div class="col-md-1" style="background-color: #333"></div>
+    <div class="col-md-12" style="background-color: #333 !important">
+    <div class="col-md-1" style="background-color: #333 !important"></div>
     <div class="col-md-10" style="background-color:white; min-height:800px; padding-left:0px; padding-right:0px">
       <%= render 'layouts/navbar' %>
       <div style="padding-left:15px; padding-right:15px; padding-top: 15px">
       <%= yield %>
       </div>
+    </div>
     </div>
     <div class="col-sm-12" style="background-color: #333; min-height:100px">
       <%= render 'layouts/footer' %>
