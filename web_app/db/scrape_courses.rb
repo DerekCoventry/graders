@@ -187,7 +187,11 @@ for a in 0..trLinks.length-1 do
 			elsif(text[j].index(/\(/) != nil) then 
 				next;
 			elsif(text[j].index(/\{/) != nil) then 
-				next;
+				if text[j].length <= 5 then
+					next;
+				else
+					PROFESSOR[i] = (text[j].split())[1]
+				end
 			elsif(text[j].index(/and  /) != nil) then 
 				day = (text[j].split("  ")[1])
 				addDay(daysList, day)
