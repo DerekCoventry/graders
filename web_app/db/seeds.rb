@@ -4,11 +4,9 @@ load './db/scrape_courses.rb'
 
 year = Date.today.year
 month = Date::MONTHNAMES[Date.today.month]
-if (month == 'January' || month == 'February' || month == 'March' 
-	|| month == 'April') then
+if (month == 'January' || month == 'February' || month == 'March' || month == 'April') then
 	semName = 'Su'
-elsif (month == 'May' || month == 'June' || month == 'July' 
-	|| month == 'August') then
+elsif (month == 'May' || month == 'June' || month == 'July' || month == 'August') then
 	semName = 'Au'
 else
 	semName = 'Sp'
