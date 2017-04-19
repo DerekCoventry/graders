@@ -2,9 +2,9 @@
 <% current_user.auth() %>
 
 <% if current_user.professor  %>
-	<h2>Success, don't make me regret giving you permissions to these records, buddy.</h2>
+	<p>Success, don't make me regret giving you permissions to these records, buddy.</p>
 <% else %>
-	<h1>Nice try hacker.</h1> 
-	<h2>It seems the email registered to your account is not a staff email.</h22>
+	<p>Nice try hacker.</p> 
+	<p>It seems the email registered to your account is not a staff email.</p>
 <% end %>
 

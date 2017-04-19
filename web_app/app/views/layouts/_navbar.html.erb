@@ -2,12 +2,12 @@
 <div class="collapse navbar-collapse" id="navcol-1" style="background-color:#333;padding-top:5px; padding-left:5px">        
         <ul class="nav navbar-nav" style="padding:0px;margin:0px">
         <% if user_signed_in? %>
-        <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="/" style="padding-top: 10px; padding-bottom:10px ">Home</a></li>
-          <li class="presentation" role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../students/index" style="padding-top: 10px; padding-bottom:10px;font-weight:1600px ">Students</a></li>
+        <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="/" style="padding-top: 10px; padding-bottom:10px">Home</a></li>
+          <li class="presentation" role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../students/index" style="padding-top: 10px; padding-bottom:10px;">Students</a></li>
 
 	        <% if current_user.professor? %>
-	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../professors/index" style="padding-top: 10px; padding-bottom:10px;font-weight:1600px ">Professors</a></li>
-	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../recommendations" style="padding-top: 10px; padding-bottom:10px;font-weight:1600px ">Recommendations</a></li>
+	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../professors/index" style="padding-top: 10px; padding-bottom:10px; ">Professors</a></li>
+	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../recommendations" style="padding-top: 10px; padding-bottom:10px;">Recommendations</a></li>
 	        <% else %>
 	            <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../authenticate/index" style="padding-top: 10px; padding-bottom:10px;">Professor Authentication</a></li>
 	        <% end %>
