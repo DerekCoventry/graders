@@ -12,13 +12,15 @@ _It is highly recommended that the email address used for an account should matc
 
 1) Clone this repo
 
-2) Run the command <code>bundle install</code>
+2) Run the command <code>bundle install</code> to install gems and dependencies.
 
-3) Run the command <code>rake db:setup</code>
+3) Run the command <code>rake db:setup</code> to set up the database.
 
-4) Run the command <code>rails db:migrate</code>
+4) Run the command <code>rails db:migrate</code> to perform the migrations to the database schema.
 
-5) Run the command <code>rails db:seed</code>
+5) Run the command <code>rails db:seed</code> to seed the database with preset values.
+
+6) Finally run the command <code>rails s</code> to start the rails server and access the web application in the browser.
 
 ----------
 
