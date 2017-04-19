@@ -26,6 +26,7 @@
         %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Email
         %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Course Pref
         %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} References
+        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Feedback
     %tbody
       - smart_listing.collection.each do |applicant|
         %tr
@@ -35,8 +36,11 @@
           %td{:style => "padding-right:20px; text-align: center"}#{applicant.classOne}  #{applicant.classTwo}  #{applicant.classThree}
           %td{:style => "padding-right:20px; text-align: center"}
             %a{:href => "../../recommendations"}= applicant.references ||= 0
+          %td{:style => "padding-right:20px; text-align: center"}
+            %a{:href => "../../feedbacks"}= applicant.feedback ||= 0
           %td
             %a{:href => "../../courses/addgrader.html?email=#{applicant.email}&course=#{@filterselected}&section=#{@sectionselected}"} Add as grader to CSE #{@filterselected}.#{@sectionselected}
+
 
 
   = smart_listing.paginate 

@@ -11,12 +11,21 @@ class ApplicantsController < ApplicationController
         @courses = Course.all
         @course_num = [0] + Course.all.map{|c| c.courseNumber}
         @references = Recommendation.all
+        @feedbacks = Feedback.all
         @sections = [0] + @courses.all.map{|s| s.sectionNumber}
         @applicants = Applicant.filter_by_looking()
         @applicants.each do |s| 
           s.references = 0 
+          s.feedback = 0
           s.save
           end
+        @feedbacks.each do |f|
+          y = f.student_id
+          if y != 0
+            s = @applicants.find y
+            y.feedback = y.feedback + 1
+          end
+        end
         @references.each do |r|
           x = r.semail.to_s
           @applicants.each do |a|

@@ -46,7 +46,6 @@ class FeedbacksController < ApplicationController
           format.html { render :new }
           format.json { render json: @feedback.errors, status: :unprocessable_entity }
         end
-      end
     end
   end
 
