@@ -1,6 +1,6 @@
 # Final Project v1.0 by Useless Nuts
 
-This is a Ruby on Rails web application that provides an interface for students and professors to apply to be/look for graders. 
+This is a Ruby on Rails web application that provides an interface for students to apply for a grader position and professors to look for graders. 
 
 _Recommended Rails version: 5.0.2_
 
