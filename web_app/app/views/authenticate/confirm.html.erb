@@ -1,9 +1,10 @@
+<!--This checks whether the user have the autentications-->
 <% current_user.auth() %>
 
 <% if current_user.professor  %>
-	<p>Success, don't make me regret giving you permissions to these records, buddy.</p>
+	<h2>Success, don't make me regret giving you permissions to these records, buddy.</h2>
 <% else %>
-	<p>Nice try hacker.</p> 
-	<p>It seems the email registered to your account is not a staff email.</p>
+	<h1>Nice try hacker.</h1> 
+	<h2>It seems the email registered to your account is not a staff email.</h22>
 <% end %>
 
