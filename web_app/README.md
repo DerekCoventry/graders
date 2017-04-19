@@ -1,24 +1,17 @@
-# README
+# Final Project by Useless Nuts
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails web application that provides an interface for students and professors to apply to be/look for graders. 
 
-Things you may want to cover:
+Setting up this project on local development environment:
 
-* Ruby version
+* Clone this repo
 
-* System dependencies
+* Run the command <code>bundle install</code>
 
-* Configuration
+* Run the command <code>rake db:setup</code>
 
-* Database creation
+* Run the command <code>rails db:migrate</code>
 
-* Database initialization
+* Run the command <code>rails db:seed</code>
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
