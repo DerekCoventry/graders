@@ -42,40 +42,45 @@ class CoursesController < ApplicationController
     @email = params[:email].to_s
     @coursenum = params[:course].to_i
     @section = params[:section].to_s
-    puts @section
     @applicants = Applicant.filter_by_email(@email)
-    x = 0
-    @applicants.each do |c|
-      x=c.id
-    end
-    puts x
-    @app = @applicants.find x
-    @courses = Course.filter_course_num(@coursenum)
-    course_searched_list = @courses.filter_course_sect(@section.to_s)
-    x=0
-    course_searched_list.each do |c|
-      x=c.id
-    end
-    @course_searched = course_searched_list.find x
-    if @course_searched.graderOne
-      if @course_searched.graderTwo
-        if @course_searched.graderThree
-          if @course_searched.graderFour
-          else
-            @course_searched.graderFour = @email
-          end
-        else
-          @course_searched.graderThree = @email
-        end
-      else
-        @course_searched.graderTwo = @email
+    if @applicants.size > 0
+      x = 0
+      @applicants.each do |c|
+        x=c.id
       end
-    else
-      @course_searched.graderOne = @email
+      @app = @applicants.find x
+      @courses = Course.filter_course_num(@coursenum)
+      if @courses.size > 0
+        course_searched_list = @courses.filter_course_sect(@section.to_s)
+        if course_searched_list.size >  0
+          x=0
+          course_searched_list.each do |c|
+            x=c.id
+          end
+          @course_searched = course_searched_list.find x
+          if @course_searched.graderOne && @course_searched.graderOne.length > 8 
+            if @course_searched.graderTwo && @course_searched.graderTwo.length > 8
+              if @course_searched.graderThree && @course_searched.graderThree.length > 8
+                if @course_searched.graderFour && @course_searched.graderFour.length > 8
+                  redirect_to courses_url, :error => 'No room for '
+                else
+                  @course_searched.graderFour = @email
+                end
+              else
+                @course_searched.graderThree = @email
+              end
+            else
+              @course_searched.graderTwo = @email
+            end
+          else
+            @course_searched.graderOne = @email
+          end
+          @course_searched.save
+          @app.available = "0"
+          @app.save
+        end
+      end
     end
-    @course_searched.save
-    @app.available = "0"
-    @app.save
 
     
   end

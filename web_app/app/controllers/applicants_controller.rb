@@ -95,7 +95,8 @@ class ApplicantsController < ApplicationController
   # POST /applicants.json
   def create
     @applicant = Applicant.new(applicant_params)
-
+    @applicant.student_id = current_user.id.to_i
+    @applicant.references = 0
     respond_to do |format|
       if @applicant.save
         format.html { redirect_to @applicant, notice: 'Applicant was successfully created.' }
@@ -150,6 +151,6 @@ class ApplicantsController < ApplicationController
         :wednesdayStartSecond, :wednesdayEndSecond, 
         :thursdayStartSecond, :thursdayEndSecond, 
         :fridayStartSecond, :fridayEndSecond,
-        :schedule, :classOne, :classTwo, :classThree)
+        :schedule, :classOne, :classTwo, :classThree, :student_id, :references, :semester)
     end
 end

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Professor:</strong>
+  <%= @feedback.professor %>
+</p>
+
+<p>
+  <strong>Pemail:</strong>
+  <%= @feedback.pemail %>
+</p>
+
+<p>
+  <strong>Coursenumber:</strong>
+  <%= @feedback.courseNumber %>
+</p>
+
+<p>
+  <strong>Sectionnumber:</strong>
+  <%= @feedback.sectionNumber %>
+</p>
+
+<p>
+  <strong>Semail:</strong>
+  <%= @feedback.semail %>
+</p>
+
+<p>
+  <strong>Sname:</strong>
+  <%= @feedback.sname %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @feedback.rating %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @feedback.notes %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @feedback.student %>
+</p>
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>

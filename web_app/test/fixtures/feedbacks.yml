@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  professor: MyString
+  pemail: MyString
+  courseNumber: 1
+  sectionNumber: MyString
+  semail: MyString
+  sname: MyString
+  rating: 1
+  notes: MyText
+  student: one
+
+two:
+  professor: MyString
+  pemail: MyString
+  courseNumber: 1
+  sectionNumber: MyString
+  semail: MyString
+  sname: MyString
+  rating: 1
+  notes: MyText
+  student: two

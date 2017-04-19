@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418161630) do
+ActiveRecord::Schema.define(version: 20170419143901) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "fname"
@@ -47,7 +47,9 @@ ActiveRecord::Schema.define(version: 20170418161630) do
     t.string   "classTwo"
     t.string   "classThree"
     t.integer  "references"
+    t.integer  "student_id"
     t.index ["schedule_id"], name: "index_applicants_on_schedule_id"
+    t.index ["student_id"], name: "index_applicants_on_student_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -70,6 +72,21 @@ ActiveRecord::Schema.define(version: 20170418161630) do
     t.string   "graderTwo"
     t.string   "graderThree"
     t.string   "graderFour"
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string   "professor"
+    t.string   "pemail"
+    t.integer  "courseNumber"
+    t.string   "sectionNumber"
+    t.string   "semail"
+    t.string   "sname"
+    t.integer  "rating"
+    t.text     "notes"
+    t.integer  "student_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["student_id"], name: "index_feedbacks_on_student_id"
   end
 
   create_table "recommendations", force: :cascade do |t|
@@ -126,7 +143,7 @@ ActiveRecord::Schema.define(version: 20170418161630) do
     t.string   "fname"
     t.boolean  "admin",                  default: false
     t.integer  "role"
-    t.boolean  "student"
+    t.boolean  "student",                default: false
     t.string   "lname"
     t.boolean  "professor",              default: false
     t.boolean  "stud"
