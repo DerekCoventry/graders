@@ -1,4 +1,3 @@
-require 'Mechanize'
 require 'pdf-reader'
 require 'open-uri'
 
