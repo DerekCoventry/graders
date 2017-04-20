@@ -11,6 +11,7 @@ class ApplicantsController < ApplicationController
         @courses = Course.all
         @course_num = [0] + Course.all.map{|c| c.courseNumber}
         @references = Recommendation.all
+        puts @course_num.uniq
         @feedbacks = Feedback.all
         @sections = [0] + @courses.all.map{|s| s.sectionNumber}
         @applicants = Applicant.filter_by_looking()
