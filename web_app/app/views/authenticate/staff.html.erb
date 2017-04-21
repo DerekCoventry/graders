@@ -1,7 +1,7 @@
 <!--This checks whether the user have the autentications-->
-<% current_user.auth_professor(@professors) %>
+<% current_user.auth_staff(@staff) %>
 
-<% if current_user.professor  %>
+<% if current_user.staff  %>
 	<p>Success, don't make me regret giving you permissions to these records, buddy.</p>
 <% else %>
 	<p>Nice try hacker.</p> 

@@ -216,7 +216,6 @@ class PrereqsController < ApplicationController
               raise e
             end 
         end
-      sleep(0.5)
     end
     total = 0
     #merge with previous

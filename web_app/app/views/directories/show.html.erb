@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @directory.email %>
+</p>
+
+<p>
+  <strong>Professor:</strong>
+  <%= @directory.professor %>
+</p>
+
+<p>
+  <strong>Staff:</strong>
+  <%= @directory.staff %>
+</p>
+
+<%= link_to 'Edit', edit_directory_path(@directory) %> |
+<%= link_to 'Back', directories_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  professor: false
+  staff: false
+
+two:
+  email: MyString
+  professor: false
+  staff: false

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'authenticate/staff'
+  get 'directories/gatherdata'
+  resources :directories
   get 'prereqs/gatherdata'
   resources :prereqs
   resources :feedbacks
