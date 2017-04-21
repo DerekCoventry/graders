@@ -14,6 +14,8 @@ class FeedbacksController < ApplicationController
 
   # GET /feedbacks/new
   def new
+    @course_num = Course.all.map{|c| c.courseNumber}
+    @course_num.uniq!
     @feedback = Feedback.new
 
     end
@@ -30,7 +32,7 @@ class FeedbacksController < ApplicationController
     @email = @feedback.semail
     @applicants = Applicant.filter_by_email(@email)
     if @applicants.size != 1
-      format.html { redirect_to "../../feedbacks", notice: 'Feedback was unsuccessfully created.'}
+      format.html { redirect_to "../../feedbacks", notice: 'Feedback was unsuccessfully created, student not registered.'}
     else
       x = 0
       @applicants.each do |c|

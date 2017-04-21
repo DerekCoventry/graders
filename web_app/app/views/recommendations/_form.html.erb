@@ -12,29 +12,50 @@
   <% end %>
 
   <div class="field">
-    <td><%= f.label "Professor Name" %></td><br />
-    <td><%= f.text_field :professor %></td>
+  <table>
+    <tr>
+    <td>
+    <%= f.label "Professor Name" %>
+    </td> 
+    <td>
+    <%= f.label "Professor Email" %><br />
+    </td>
     </tr>
+    <tr>
+    <td>
+    <%= f.text_field :professor, :value => current_user.fname + " " + current_user.lname %>
+    </td>
+    <td>
+    <%= f.text_field :pemail, :value => current_user.email %>
+    </td>
+    </tr>
+    </table>
   </div>
 
   <div class="field">
-    <td><%= f.label "Professor Email" %></td><br />
-    <td><%= f.text_field :pemail %></td>
+  <table>
+    <tr>
+      <td>
+        <%= f.label "Student Name" %>
+      </td> 
+      <td>
+        <%= f.label "Student Email" %><br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.text_field :student %>
+      </td>
+      <td>
+        <%= f.text_field :semail %>
+      </td>
+    </tr>
+  </table>
   </div>
 
   <div class="field">
-    <td><%= f.label "Student Name" %></td><br />
-    <td> <%= f.text_field :student %></td>
-  </div>
-
-  <div class="field">
-    <td><%= f.label "Student Email" %></td><br />
-    <td><%= f.text_field :semail %></td>
-  </div>
-
-  <div class="field">
-    <td><%= f.label :course %></td><br />
-    <td><%= f.text_field :course %></td>
+    <%= f.label "Course Number" %> <br />
+    <%= f.select :course, options_for_select(@course_num) %>
   </div>
 
   <div class="field">

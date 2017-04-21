@@ -12,49 +12,73 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :professor %>
-    <%= f.text_field :professor %>
+  <table>
+    <tr>
+    <td>
+    <%= f.label "Professor Name" %>
+    </td> 
+    <td>
+    <%= f.label "Professor Email" %><br />
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <%= f.text_field :professor, :value => current_user.fname + " " + current_user.lname %>
+    </td>
+    <td>
+    <%= f.text_field :pemail, :value => current_user.email %>
+    </td>
+    </tr>
+    </table>
   </div>
 
   <div class="field">
-    <%= f.label :pemail %>
-    <%= f.text_field :pemail %>
+  
+    
   </div>
 
   <div class="field">
-    <%= f.label :courseNumber %>
-    <%= f.number_field :courseNumber %>
+    <%= f.label "Course Number" %> <br />
+    <%= f.select :courseNumber, options_for_select(@course_num) %>
   </div>
 
   <div class="field">
-    <%= f.label :sectionNumber %>
+    <%= f.label "Section Number" %><br />
     <%= f.text_field :sectionNumber %>
   </div>
 
   <div class="field">
-    <%= f.label :semail %>
-    <%= f.text_field :semail %>
+  <table>
+    <tr>
+      <td>
+        <%= f.label "Student Name" %>
+      </td> 
+      <td>
+        <%= f.label "Student Email" %><br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.text_field :student %>
+      </td>
+      <td>
+        <%= f.text_field :semail %>
+      </td>
+    </tr>
+  </table>
   </div>
 
-  <div class="field">
-    <%= f.label :sname %>
-    <%= f.text_field :sname %>
-  </div>
 
   <div class="field">
     <%= f.label :rating %>
-    <%= f.number_field :rating %>
+    <%= f.select :rating, options_for_select([0,1,2,3,4,5]) %>
   </div>
 
   <div class="field">
-    <%= f.label :notes %>
+    <%= f.label :notes %><br />
     <%= f.text_area :notes %>
   </div>
 
-  <div class="field">
-    <%= f.label :student_id %>
-    <%= f.text_field :student_id %>
-  </div>
 
   <div class="actions">
     <%= f.submit %>

@@ -14,6 +14,8 @@ class RecommendationsController < ApplicationController
 
   # GET /recommendations/new
   def new
+    @course_num = Course.all.map{|c| c.courseNumber}
+    @course_num.uniq!
     @recommendation = Recommendation.new
   end
 

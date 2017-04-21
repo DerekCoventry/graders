@@ -99,6 +99,9 @@ class ApplicantsController < ApplicationController
 
   # GET /applicants/new
   def new
+    @course_num = Course.all.map{|c| c.courseNumber}
+    @course_num.uniq!
+    @time_options = [0, 30, 100, 130, 200, 230, 300, 330, 400, 430, 500, 530, 600, 630, 700, 730, 800, 830, 900, 930, 1000, 1030, 1100, 1130, 1200, 1230, 1300, 1330, 1400, 1430, 1500, 1530, 1600, 1630, 1700, 1830, 1900, 1930, 2000, 2030, 2100, 2130, 2200, 2230, 2300, 2330, 2400]
     @applicant = Applicant.new
   end
 
