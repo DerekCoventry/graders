@@ -13,13 +13,13 @@
 
   <div class="field">
     <%= f.label "First Name" %>
-    <%= f.text_field :fname %>
+    <%= f.text_field :fname, :value => current_user.fname %>
   </div>
 
 
   <div class="field">
     <%= f.label "Last Name" %>
-    <%= f.text_field :lname %>
+    <%= f.text_field :lname, :value => current_user.lname %>
   </div>
 
 
@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :value => current_user.email %>
   </div>
   <table>
   <thead>

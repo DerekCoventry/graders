@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419154900) do
+ActiveRecord::Schema.define(version: 20170420200805) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "fname"
@@ -90,6 +90,14 @@ ActiveRecord::Schema.define(version: 20170419154900) do
     t.index ["student_id"], name: "index_feedbacks_on_student_id"
   end
 
+  create_table "prereqs", force: :cascade do |t|
+    t.integer  "courseNumber"
+    t.text     "req"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "post"
+  end
+
   create_table "recommendations", force: :cascade do |t|
     t.string   "professor"
     t.string   "pemail"
@@ -144,7 +152,7 @@ ActiveRecord::Schema.define(version: 20170419154900) do
     t.string   "fname"
     t.boolean  "admin",                  default: false
     t.integer  "role"
-    t.boolean  "student"
+    t.boolean  "student",                default: false
     t.string   "lname"
     t.boolean  "professor",              default: false
     t.boolean  "stud"

@@ -8,10 +8,11 @@ class ApplicantsController < ApplicationController
   def index
     if user_signed_in? 
       if current_user.professor 
+        @reqs = Prereq.all
         @courses = Course.all
         @course_num = [0] + Course.all.map{|c| c.courseNumber}
         @references = Recommendation.all
-        puts @course_num.uniq
+        @course_num.uniq
         @feedbacks = Feedback.all
         @sections = [0] + @courses.all.map{|s| s.sectionNumber}
         @applicants = Applicant.filter_by_looking()
@@ -39,16 +40,30 @@ class ApplicantsController < ApplicationController
         @filterselected = "0"
         @sectionselected = "0"
         applicants_scope = @applicants
-
-
         filt = params[:filter].to_i
         @filterselected = filt.to_s
         sect = params[:sect].to_i
         @sectionselected = sect.to_s
-        puts sect
         if params[:filter].to_i != 0
           @courses = @courses.filter_course_num(params[:filter].to_i)
           @sections = [0] + @courses.all.map{|s| s.sectionNumber}
+
+          if params[:pref] != "on"
+            applicants_scope = @applicants.filter_by_course(params[:filter].to_i)
+          else
+            course_pre_req = @reqs.find params[:filter].to_i
+            puts pre_reqs = course_pre_req.post
+            applicants_scope = @applicants.filter_by_course(pre_reqs[0].to_i)
+            len = pre_reqs.length
+            if pre_reqs.length > 5
+              #len = 5
+            end
+            for slide in 1...len
+              next_req = pre_reqs[slide].to_i
+              applicants_scope = applicants_scope.or(@applicants.filter_by_course(next_req))
+            #applicants_scope.reject!{|ap| !(ap.classOne && (pre_reqs.include? ap.classOne) || ap.classTwo && (pre_reqs.include? ap.classTwo) || ap.classThree && (pre_reqs.include? ap.classThree))}
+            end
+          end
           if params[:sect].to_i != 0
 
               course_searched = @courses.filter_course_sect(params[:sect].to_s)
@@ -57,24 +72,14 @@ class ApplicantsController < ApplicationController
               x=c.id
             end
             course_searched = course_searched.find x
-            puts params[:pref]
-            if params[:pref] != "on"
-              applicants_scope = @applicants.filter_by_course(params[:filter].to_i)
-            else
-              applicants_scope = @applicants.filter_by_course_loose(params[:filter].to_i)
-            end
+            
             applicants_scope = applicants_scope.filter_hours([
               course_searched.mondayStart || 9999, course_searched.mondayEnd || 0, 
               course_searched.tuesdayStart || 9999, course_searched.tuesdayEnd || 0, 
               course_searched.wednesdayStart || 9999, course_searched.wednesdayEnd || 0, 
               course_searched.thursdayStart || 9999, course_searched.thursdayEnd || 0, 
               course_searched.fridayStart || 9999, course_searched.fridayEnd || 0])
-          else
-            applicants_scope = @applicants.filter_by_course(params[:filter])
           end
-        else
-          @applicants = @applicants.filter_by_email(current_user.email)
-
         end
           #(:classOne == filt) || (:classTwo == filt) || (:classThree == filt))  if params[:filter]
         #applicants_scope = Applicant.all.like(params[:filter]) if params[:filter]

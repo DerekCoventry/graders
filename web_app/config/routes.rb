@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'prereqs/gatherdata'
+  resources :prereqs
   resources :feedbacks
   get 'authenticate/index'
 
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :recommendations
   get 'professors/index'
+
 
   get 'professors/recommendations'
 

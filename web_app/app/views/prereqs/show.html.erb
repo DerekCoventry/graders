@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Coursenumber:</strong>
+  <%= @prereq.courseNumber %>
+</p>
+
+<p>
+  <strong>Req:</strong>
+  <%= @prereq.req %>
+</p>
+<p>
+  <strong>Post:</strong>
+  <%= @prereq.post %>
+</p>
+
+<%= link_to 'Edit', edit_prereq_path(@prereq) %> |
+<%= link_to 'Back', prereqs_path %>

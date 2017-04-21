@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require smart_listing
+//= require semantic-ui
 $(function() {
   $("#applicants th a, #applicants .pagination a").live("click", function() {
     $.getScript(this.href);

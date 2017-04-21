@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<form action="../prereqs/gatherdata">
+  <button class="ui right floated violet button">Gather Data</button>
+</form>
+<h1>Prereqs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Coursenumber</th>
+      <th>Req</th>
+      <th>Post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prereqs.each do |prereq| %>
+      <tr>
+        <td><%= prereq.courseNumber %></td>
+        <td><%= prereq.req %></td>
+        <td><%= prereq.post %></td>
+        <td><%= link_to 'Show', prereq %></td>
+        <td><%= link_to 'Edit', edit_prereq_path(prereq) %></td>
+        <td><%= link_to 'Destroy', prereq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prereq', new_prereq_path %>
