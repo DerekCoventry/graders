@@ -1,31 +1,105 @@
-<h1></h1>
-<h3 style = "color:teal"> Matching professors with their graders like there is no tomorrow.</h3>
-<div class="col-md-6">
-	<p>Graders are the people who grade assignments for the professors. They are the men behind the mirror! Graders follow what the professor tells them to do. They work tirelessly to give students the best possible experience here at The Ohio State University</p>
-</div>
-<div class="col-md-6">
-	<p>Professors teach the courses. Sadly, a professor has far too many assignments to grade than they are capable of doing (without overloading their brains). Thus, a professor will give all of the easy grading to students who have previously taken the course.</p> 
-</div>
-<div class="col-md-1" style=""></div>
-<div class="col-md-4" style="background-color: #ba9d47 !important; border-radius: 12px; height:280px;margin-top: 15px;padding: 0px 15px 15px 15px; width:300px">
-	<div style="text-align:center;color:white">
-	<h1 style="color:white">Grader</h1>
-	<p>Become a grader today! <br />It's as easy as 1, 2, grader!</p>
-	<img src="/grader.jpg" height=150px; align="middle">
+<% if user_signed_in? %>
+	<h3 style = "color:teal"> Matching professors with their graders like there is no tomorrow.</h3>
+	<div class="col-md-6">
+		<p>Graders are the people who grade assignments for the professors. They are the men behind the mirror! Graders follow what the professor tells them to do. They work tirelessly to give students the best possible experience here at The Ohio State University</p>
 	</div>
-</div>
-<div class="col-md-2" style=""></div>
-<div class="col-md-4" style="background-color: #4f62a6 !important; border-radius: 12px; height:280px;margin-top:15px;padding:15px;width:300px">
-		<div class="col-md-6" style="color:white">
-			
-			<p>Pick your graders! <br />They are mostly bad so choose wisely!</p>
+	<div class="col-md-6">
+		<p>Professors teach the courses. Sadly, a professor has far too many assignments to grade than they are capable of doing (without overloading their brains). Thus, a professor will give all of the easy grading to students who have previously taken the course.</p> 
+	</div>
+	<div class="col-md-1" style=""></div>
+	<div class="col-md-4" style="background-color: #ba9d47 !important; border-radius: 12px; height:280px;margin-top: 15px;padding: 0px 15px 15px 15px; width:300px">
+		<div style="text-align:center;color:white">
+		<h1 style="color:white">Grader</h1>
+		<p>Become a grader today! <br />It's as easy as 1, 2, grader!</p>
+		<img src="/grader.jpg" height=150px; align="middle">
 		</div>
-		<div class="col-md-6" style="">
-		<img src="/professor.jpg" height=150px; align=bottom>
-		</div>
-		<div class="col-md-12" style="">
-			<h1 style="color:white;text-align:center">Professor</h1>
-		</div>
+	</div>
+	<div class="col-md-2" style=""></div>
+	<div class="col-md-4" style="background-color: #4f62a6 !important; border-radius: 12px; height:280px;margin-top:15px;padding:15px;width:300px">
+			<div class="col-md-6" style="color:white">
+				
+				<p>Pick your graders! <br />They are mostly bad so choose wisely!</p>
+			</div>
+			<div class="col-md-6" style="">
+			<img src="/professor.jpg" height=150px; align=bottom>
+			</div>
+			<div class="col-md-12" style="">
+				<h1 style="color:white;text-align:center">Professor</h1>
+			</div>
 
-</div>
-<div class="col-md-1" style=""></div>
+	</div>
+	<div class="col-md-1" style=""></div>
+<% else %>
+    <!-- Header -->
+    <header class="intro-header">
+        <div class="container">
+            <div class="intro-message">
+                <h1>Graders 'R' Us</h1>
+                <hr class="intro-divider">
+                <ul class="list-inline intro-social-buttons">
+                    <li class="list-inline-item">
+                        <a href="#" class="ui green button">Sign-in</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="ui blue button"> <span class="network-name">Sign-up</span></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="ui olive button"> <span class="network-name">View Courses</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <section class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Students Graders</h2>
+                    <p class="lead">Graders grade assignements for professors. Graders R Us strives to connect graders with the professors/classes they desire. With our unique algorithm, one application is all it takes to get you, the grader, the greatest probability of haveing a grading position for next semester.  </p>
+                </div>
+                <div class="col-lg-5 offset-lg-2">
+                    <img class="img-fluid" src="img/ipad.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <section class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 push-lg-7">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Professors</h2>
+                    <p class="lead">Professors fuel the need for student graders. At Graders R Us we strive to connect graders with professors with the touch of a button. Professors are allowed to activate a class, request graders, and even request to have specific graders. Profesors can additionally write feedback and recomendations for graders.</p>
+                </div>
+                <div class="col-lg-5 pull-lg-5">
+                    <img class="img-fluid" src="img/dog.png" alt="">
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </section>
+
+    <!-- /.content-section-a -->
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/tether/tether.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+<% end %>
