@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'courses/activate'
+  get 'courses/requestgrader'
+  get 'courses/removerequest'
+  get 'courses/confirmgrader'
   get 'authenticate/staff'
   get 'directories/gatherdata'
   resources :directories

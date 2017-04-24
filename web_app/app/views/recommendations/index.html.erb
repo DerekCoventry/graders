@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Recommendations</h1>
-
+<form action="../recommendations/new">
+  <button class=" ui top attached violet button">New Recomendation</button>
+</form>
+<div class="ui attached segment">
 <table>
   <thead>
     <tr>
@@ -24,7 +27,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
-<%= link_to 'New Recommendation', new_recommendation_path %>

@@ -31,10 +31,32 @@
           %td{:style => "padding-right:20px; padding-top:10px; text-align: center"}= course.courseNumber
           %td{:style => "padding-right:20px; text-align: center"}= course.sectionNumber
           %td{:style => "padding-right:20px; text-align: center"}= (course.professor || "Undetermined")
-          %td{:style => "padding-right:20px; text-align: center"}= (course.graderOne || "None")
-          %td{:style => "padding-right:20px; text-align: center"}= (course.graderTwo || "None")
-          %td{:style => "padding-right:20px; text-align: center"}= (course.graderThree || "None")
-          %td{:style => "padding-right:20px; text-align: center"}= (course.graderFour || "None")
+          -if course.requested > 0
+            -if course.requestOne
+              %td{:style => "padding-right:20px; text-align: center"}= (course.graderOne || "Requested")
+            -if course.requested > 1
+              -if course.requestTwo
+                %td{:style => "padding-right:20px; text-align: center"}= (course.graderTwo || "Requested")
+              -if course.requested > 2
+                -if course.requestThree
+                  %td{:style => "padding-right:20px; text-align: center"}= (course.graderThree || "Requested")
+                -if course.requested > 3
+                  -if course.requestFour
+                    %td{:style => "padding-right:20px; text-align: center"}= (course.graderFour || "Requested")
+                -else
+                  %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+              -else
+                %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+                %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+            -else
+              %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+              %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+              %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+          -else
+            %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+            %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+            %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+            %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
 
 
   = smart_listing.paginate 

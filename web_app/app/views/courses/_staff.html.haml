@@ -33,27 +33,27 @@
           %td{:style => "padding-right:20px; text-align: center"}= course.sectionNumber
           %td{:style => "padding-right:20px; text-align: center"}= (course.professor || "Undetermined")
           -if course.requested > 0
-            -if true
+            -if course.requestOne
               %td{:style => "padding-right:20px; text-align: center"} 
-                %a{:href => "../../courses/removerequest.html?email=#{course.graderOne}&course=#{course.courseNumber}&section=#{course.sectionNumber}"} Remove Request: #{course.graderOne}
+                %a{:href => "../../courses/confirmgrader.html?email=#{course.graderOne}&course=#{course.courseNumber}&section=#{course.sectionNumber}"} Confirm Grader: #{course.graderOne}
             -else
               %td{:style => "padding-right:20px; text-align: center"}= (course.graderOne || "Requested")
             -if course.requested > 1
-              -if true
+              -if course.requestTwo
                 %td{:style => "padding-right:20px; text-align: center"} 
-                  %a{:href => "../../courses/removerequest.html?email=#{course.graderTwo}&course=#{course.courseNumber}&section=#{course.sectionNumber}"} Remove Request: #{course.graderTwo}
+                  %a{:href => "../../courses/confirmgrader.html?email=#{course.graderTwo}&course=#{course.courseNumber}&section=#{course.sectionNumber}"} Confirm Grader: #{course.graderTwo}
               -else
                 %td{:style => "padding-right:20px; text-align: center"}= (course.graderTwo || "Requested")
               -if course.requested > 2
-                -if true
+                -if course.requestThree
                   %td{:style => "padding-right:20px; text-align: center"} 
-                    %a{:href => "../../courses/removerequest.html?email=#{course.graderThree}&course=#{course.courseNumber}&section=#{course.sectionNumber}"} Remove Request: #{course.graderThree}
+                    %a{:href => "../../courses/confirmgrader.html?email=#{course.graderThree}&course=#{course.courseNumber}&section=#{course.sectionNumber}"} Confirm Grader: #{course.graderThree}
                 -else
                   %td{:style => "padding-right:20px; text-align: center"}= (course.graderThree || "Requested")
                 -if course.requested > 3
-                  -if true
-                    %td{:style => "padding-right:20px; text-align: center"}
-                      %a{:href => "../../courses/removerequest.html?email=#{course.graderFour}&course=#{course.courseNumber}&section=#{course.sectionNumber}"} Remove Request: #{course.graderFour}
+                  -if course.requestFour
+                    %td{:style => "padding-right:20px; text-align: center"} 
+                      %a{:href => "../../courses/confirmgrader.html?email=#{course.graderFour}&course=#{course.courseNumber}&section=#{course.sectionNumber}"} Confirm Grader: #{course.graderFour}
                   -else
                     %td{:style => "padding-right:20px; text-align: center"}= (course.graderFour || "Requested")
                 -else
@@ -65,7 +65,7 @@
                 %td{:style => "padding-right:20px; text-align: center"} 
                   %a{:href => "../../courses/requestgrader.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Request
             -else
-              %td{:style => "padding-right:20px; text-align: center"}
+              %td{:style => "padding-right:20px; text-align: center"} 
                 %a{:href => "../../courses/requestgrader.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Request
               %td{:style => "padding-right:20px; text-align: center"} 
                 %a{:href => "../../courses/requestgrader.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Request
@@ -83,12 +83,6 @@
 
           %td{:style => "padding-right:20px; text-align: center"}= link_to("Show", "/courses/#{course.id}")
           %td{:style => "padding-right:20px; text-align: center"}= link_to("Edit", "/courses/#{course.id}/edit")
-          -if course.active
-            %td{:style => "padding-right:20px; text-align: center"} 
-              %a{:href => "../../courses/activate.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Activate Course
-          -else
-            %td{:style => "padding-right:20px; text-align: center"} 
-              %a{:href => "../../courses/activate.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Unactivate Course
 
 
   = smart_listing.paginate

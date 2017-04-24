@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421203233) do
+ActiveRecord::Schema.define(version: 20170424150959) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "fname"
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(version: 20170421203233) do
     t.string   "graderTwo"
     t.string   "graderThree"
     t.string   "graderFour"
+    t.boolean  "requestOne"
+    t.boolean  "requestTwo"
+    t.boolean  "requestThree"
+    t.boolean  "requestFour"
+    t.integer  "graders"
+    t.boolean  "active"
+    t.integer  "requested"
   end
 
   create_table "directories", force: :cascade do |t|

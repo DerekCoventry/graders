@@ -29,9 +29,10 @@ class CoursesController < ApplicationController
       end
 
       courses_searched = @courses
-      if current_user.professor 
+      if current_user.staff
+        @courses = smart_listing_create :courses, @courses, partial: "courses/staff"
+      elsif current_user.professor
         @courses = smart_listing_create :courses, @courses, partial: "courses/listing"
-        puts "ye"
       else
         @courses = smart_listing_create  :courses,  @courses, partial: "courses/safe" 
       end
@@ -65,16 +66,21 @@ class CoursesController < ApplicationController
                   redirect_to courses_url, :error => 'No room for '
                 else
                   @course_searched.graderFour = @email
+                  @course_searched.requestFour = true
                 end
               else
                 @course_searched.graderThree = @email
+                @course_searched.requestThree = true
               end
             else
               @course_searched.graderTwo = @email
+              @course_searched.requestTwo = true
             end
           else
             @course_searched.graderOne = @email
+            @course_searched.requestOne = true
           end
+
           @course_searched.save
           @app.available = "0"
           @app.save
@@ -84,7 +90,125 @@ class CoursesController < ApplicationController
 
     
   end
+  def removerequest
+    @email = params[:email].to_s
+    @coursenum = params[:course].to_i
+    @section = params[:section].to_s
+    @applicants = Applicant.filter_by_email(@email)
+    @courses = Course.filter_course_num(@coursenum)
+    if @courses.size > 0
+      course_searched_list = @courses.filter_course_sect(@section.to_s)
+      if course_searched_list.size >  0
+        x=0
+        course_searched_list.each do |c|
+          x=c.id
+        end
+        @course_searched = course_searched_list.find x
+        if @course_searched.graderOne = @email
+          @course_searched.graderOne = ""
+        elsif @course_searched.graderTwo = @email
+          @course_searched.graderTwo = ""
+        elsif @course_searched.graderThree = @email
+          @course_searched.graderThree = ""
+        elsif @course_searched.graderFour = @email
+          @course_searched.graderFour = ""
+        else
+        end
+        @course_searched.requested = @course_searched.requested - 1
+        if @course_searched.graders != @course_searched.requested
+          @course_searched.active = true
+        end
+        @course_searched.save
+      end
+    end
 
+    
+  end
+
+  def confirmgrader
+    @email = params[:email].to_s
+    @coursenum = params[:course].to_i
+    @section = params[:section].to_s
+    @applicants = Applicant.filter_by_email(@email)
+    @courses = Course.filter_course_num(@coursenum)
+    if @courses.size > 0
+      course_searched_list = @courses.filter_course_sect(@section.to_s)
+      if course_searched_list.size >  0
+        x=0
+        course_searched_list.each do |c|
+          x=c.id
+        end
+        @course_searched = course_searched_list.find x
+        if @course_searched.graderOne = @email
+          @course_searched.requestOne = false
+        elsif @course_searched.graderTwo = @email
+          @course_searched.requestTwo = false
+        elsif @course_searched.graderThree = @email
+          @course_searched.requestThree = false
+        elsif @course_searched.graderFour = @email
+          @course_searched.requestFour = false
+        else
+        end
+        @course_searched.graders = @course_searched.graders + 1
+        if @course_searched.graders = @course_searched.requested
+          @course_searched.active = false
+        end
+        @course_searched.save
+      end
+    end
+  end
+  def requestgrader
+    @coursenum = params[:course].to_i
+    @section = params[:section].to_s
+    @applicants = Applicant.filter_by_email(@email)
+    @courses = Course.filter_course_num(@coursenum)
+    if @courses.size > 0
+      course_searched_list = @courses.filter_course_sect(@section.to_s)
+      if course_searched_list.size >  0
+        x=0
+        course_searched_list.each do |c|
+          x=c.id
+        end
+        @course_searched = course_searched_list.find x
+        if @course_searched.requestOne = @email
+          @course_searched.requestOne = true
+        elsif @course_searched.requestTwo = @email
+          @course_searched.requestTwo = true
+        elsif @course_searched.requestThree = @email
+          @course_searched.requestThree = true
+        elsif @course_searched.requestFour = @email
+          @course_searched.requestFour = true
+        else
+
+        end
+        @course_searched.active = true
+        @course_searched.requested = @course_searched.requested + 1
+        @course_searched.save
+      end
+    end
+  end
+  def requestgrader
+    @coursenum = params[:course].to_i
+    @section = params[:section].to_s
+    @applicants = Applicant.filter_by_email(@email)
+    @courses = Course.filter_course_num(@coursenum)
+    if @courses.size > 0
+      course_searched_list = @courses.filter_course_sect(@section.to_s)
+      if course_searched_list.size >  0
+        x=0
+        course_searched_list.each do |c|
+          x=c.id
+        end
+        @course_searched = course_searched_list.find x
+        if @course_searched.active
+          @course_searched.active = false
+        else
+          @course_searched.active = true
+        end
+        @course_searched.save
+      end
+    end
+  end
   # GET /courses/1
   # GET /courses/1.json
   def show
@@ -147,6 +271,10 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:sectionNumber, :courseNumber, :mondayStart, :mondayEnd, :tuesdayStart, :tuesdayEnd, :wednesdayStart, :wednesdayEnd, :thursdayStart, :thursdayEnd, :fridayStart, :fridayEnd, :professor)
+      params.require(:course).permit(:sectionNumber, :courseNumber, :mondayStart,
+       :mondayEnd, :tuesdayStart, :tuesdayEnd, :wednesdayStart, :wednesdayEnd,
+        :thursdayStart, :thursdayEnd, :fridayStart, :fridayEnd, :professor,
+        :requestOne, :requestTwo, :requestThree, :requestFour, :active,
+        :requested, :graders)
     end
 end

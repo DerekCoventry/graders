@@ -38,7 +38,7 @@
             %a{:href => "../../recommendations"}= applicant.references ||= 0
           %td{:style => "padding-right:20px; text-align: center"}
             %a{:href => "../../feedbacks"}= applicant.feedback ||= 0 
-          - if @filterselected != 0 && @sectionselected == 0
+          - if @filterselected != "0" && @sectionselected != "0"
             %td
               %a{:href => "../../courses/addgrader.html?email=#{applicant.email}&course=#{@filterselected}&section=#{@sectionselected}"} Add as grader to CSE #{@filterselected}.#{@sectionselected}
 
