@@ -1,0 +1,20 @@
+.content
+  = render 'layouts/coursesnav'
+- unless smart_listing.empty?
+  %table
+    %thead
+      %tr 
+        %th{:style=>"padding-right:40px"} Course
+        %th{:style=>"padding-right:40px"} Section
+        %th{:style=>"padding-right:40px"} Professor
+        %th{:style=>"padding-right:40px"} Graders
+        %th{:style=>"padding-right:40px"} Active
+    %tbody
+      - smart_listing.collection.each do |course|
+        %tr.editable{data: {id: course.id}}
+          = smart_listing.render course: course, partial: 'courses/course', locals: {course: course}
+
+
+  = smart_listing.paginate 
+- else
+  %p.warning No records!

@@ -324,6 +324,11 @@ class CoursesController < ApplicationController
       end
     end
   end
+
+  def configure 
+    @courses = Course.all
+    smart_listing_create(:courses, @courses, partial: "courses/configure")
+  end
   def final
     @courses = Course.all 
   end
@@ -362,7 +367,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }

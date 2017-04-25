@@ -1,0 +1,20 @@
+%td{colspan: 3}
+  = form_for course, url: course.new_record? ? courses_path : course_path(course), 
+                     remote: true, html: {class: "form-horizontal"} do |f|
+
+    -f.label :courseNumber
+    -number_field_tag :courseNumber, course.courseNumber
+    -f.label :sectionNumber 
+    -f.number_field :sectionNumber, course.sectionNumber  
+
+    -f.label :professor
+    -f.text_field :professor, course.professor
+
+    -f.label :graders 
+    -f.select :graders, options_for_select([0,1,2,3,4]), :value => course.graders 
+    -f.label :active
+    -f.radio_botton :active, '1'
+    -f.radio_botton :active, '0' :active, options_for_select([0,1,2,3,4]), :value => course.active
+
+    = f.submit "Save", class: "btn btn-primary"
+    %button.btn.btn-link.cancel Cancel

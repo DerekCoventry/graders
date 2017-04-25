@@ -1,10 +1,12 @@
-<%= form_for(course) do |f| %>
-  <% if course.errors.any? %>
+<td colspan=5>
+<div class="ui segment">
+<%= form_for(@course, remove: true, html: {class: "form-horizontal"}) do |f| %>
+  <% if @course.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
 
       <ul>
-      <% course.errors.full_messages.each do |message| %>
+      <% @course.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,87 +14,34 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :sectionNumber %>
-    <%= f.number_field :sectionNumber %>
-  </div>
-
-  <div class="field">
     <%= f.label :courseNumber %>
-    <%= f.number_field :courseNumber %>
+    <%= f.number_field :courseNumber,  :value => @course.courseNumber  %>
   </div>
 
   <div class="field">
-    <%= f.label :mondayStart %>
-    <%= f.number_field :mondayStart %>
-  </div>
-
-  <div class="field">
-    <%= f.label :mondayEnd %>
-    <%= f.number_field :mondayEnd %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tuesdayStart %>
-    <%= f.number_field :tuesdayStart %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tuesdayEnd %>
-    <%= f.number_field :tuesdayEnd %>
-  </div>
-
-  <div class="field">
-    <%= f.label :wednesdayStart %>
-    <%= f.number_field :wednesdayStart %>
-  </div>
-
-  <div class="field">
-    <%= f.label :wednesdayEnd %>
-    <%= f.number_field :wednesdayEnd %>
-  </div>
-
-  <div class="field">
-    <%= f.label :thursdayStart %>
-    <%= f.number_field :thursdayStart %>
-  </div>
-
-  <div class="field">
-    <%= f.label :thursdayEnd %>
-    <%= f.number_field :thursdayEnd %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fridayStart %>
-    <%= f.number_field :fridayStart %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fridayEnd %>
-    <%= f.number_field :fridayEnd %>
+    <%= f.label :sectionNumber %>
+    <%= f.number_field :sectionNumber, :value => @course.sectionNumber  %>
   </div>
 
   <div class="field">
     <%= f.label :professor %>
-    <%= f.text_field :professor %>
+    <%= f.text_field :professor, :value => @course.professor %>
   </div>
     <div class="field">
-    <%= f.label :graderOne %>
-    <%= f.number_field :graderOne %>
+    <%= f.label :graders %>
+    <%= f.select :graders, options_for_select([0,1,2,3,4]), :value => @course.graders %>
   </div>
-    <div class="field">
-    <%= f.label :graderTwo %>
-    <%= f.number_field :graderTwo %>
-  </div>
-    <div class="field">
-    <%= f.label :graderThree %>
-    <%= f.number_field :graderThree %>
-  </div>
-      <div class="field">
-    <%= f.label :gradeFour %>
-    <%= f.number_field :graderFour %>
+  <div class="field">
+    
+    <%= f.radio_button :active, '1' %>
+    <%= f.label :active %><br />
+    <%= f.radio_button :active, '0' %>
+    <%= f.label "Inactive" %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
+</td>

@@ -1,0 +1,7 @@
+%td{:style => "padding-right:10px"}= course.courseNumber
+%td{:style => "padding-right:10px"}= course.sectionNumber
+%td{:style => "padding-right:10px"}= (course.professor || "Unknown")
+%td{:style => "padding-right:10px"}= course.graders
+%td{:style => "padding-right:10px"}= course.active
+%td.actions= smart_listing_item_actions [{name: :edit, url: edit_course_path(course)}]
+
