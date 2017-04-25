@@ -85,10 +85,10 @@
           %td{:style => "padding-right:20px; text-align: center"}= link_to("Edit", "/courses/#{course.id}/edit")
           -if course.active
             %td{:style => "padding-right:20px; text-align: center"} 
-              %a{:href => "../../courses/activate.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Activate Course
+              %a{:href => "../../courses/activate.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Unctivate
           -else
             %td{:style => "padding-right:20px; text-align: center"} 
-              %a{:href => "../../courses/activate.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Unactivate Course
+              %a{:href => "../../courses/activate.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Activate
 
 
   = smart_listing.paginate

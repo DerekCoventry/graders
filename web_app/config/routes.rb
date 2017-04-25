@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'courses/final'
+  get 'courses/autofill'
   get 'courses/activate'
   get 'courses/requestgrader'
   get 'courses/removerequest'

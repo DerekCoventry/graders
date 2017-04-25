@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<h1>Courses</h1>
+<%= render 'layouts/coursesnav' %>
+<div class="ui attached segment" %>
+<table>
+  <thead>
+    <tr style="border-bottom: 1px solid black">
+      <th colspan="2" style="text-align:center;padding-right:20px">Course</th>
+      <th style="padding-right:20px">Professor</th>
+      <th style="padding-right:20px">Graders</th>
+      <th style="padding-right:20px">Active?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td style="padding-right:20px"><%= course.courseNumber %></td>
+        <td style="padding-right:20px"><%= course.sectionNumber %></td>
+        <td style="padding-right:20px"><%= course.professor %></td>
+        <td style="padding-right:20px"><%= 
+                  case course.graders
+                    when 1
+                      course.graderOne || "Unassigned"
+                    when 2
+                      (course.graderOne || "Unassigned")+", "+(course.graderTwo || "Unassigned")
+                    when 3
+                      (course.graderOne || "Unassigned")+", "+(course.graderTwo || "Unassigned")+", "+(course.graderThree || "Unassigned")
+                    when 4
+                      (course.graderOne || "Unassigned")+", "+(course.graderTwo || "Unassigned")+", "+(course.graderThree || "Unassigned")+","+(course.graderFour || "Unassigned")
+                    else
+                      "None"
+                  end
+                    %></td>
+        <td style="padding-right:10px"><%= if course.active
+            "Active" 
+          else 
+            "Unactive" 
+          end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

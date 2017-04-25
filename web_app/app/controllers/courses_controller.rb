@@ -103,22 +103,24 @@ class CoursesController < ApplicationController
         course_searched_list.each do |c|
           x=c.id
         end
-        @course_searched = course_searched_list.find x
-        if @course_searched.graderOne = @email
-          @course_searched.graderOne = ""
-        elsif @course_searched.graderTwo = @email
-          @course_searched.graderTwo = ""
-        elsif @course_searched.graderThree = @email
-          @course_searched.graderThree = ""
-        elsif @course_searched.graderFour = @email
-          @course_searched.graderFour = ""
-        else
+        if x != 0
+          @course_searched = course_searched_list.find x
+          if @course_searched.graderOne = @email
+            @course_searched.graderOne = ""
+          elsif @course_searched.graderTwo = @email
+            @course_searched.graderTwo = ""
+          elsif @course_searched.graderThree = @email
+            @course_searched.graderThree = ""
+          elsif @course_searched.graderFour = @email
+            @course_searched.graderFour = ""
+          else
+          end
+          @course_searched.requested = @course_searched.requested - 1
+          if @course_searched.graders != @course_searched.requested
+            @course_searched.active = true
+          end
+          @course_searched.save
         end
-        @course_searched.requested = @course_searched.requested - 1
-        if @course_searched.graders != @course_searched.requested
-          @course_searched.active = true
-        end
-        @course_searched.save
       end
     end
 
@@ -187,7 +189,7 @@ class CoursesController < ApplicationController
       end
     end
   end
-  def requestgrader
+  def activate
     @coursenum = params[:course].to_i
     @section = params[:section].to_s
     @applicants = Applicant.filter_by_email(@email)
@@ -208,6 +210,122 @@ class CoursesController < ApplicationController
         @course_searched.save
       end
     end
+  end
+
+  def autofill
+    Course.all.each do |course|
+      if course.active
+        for grader in 0...course.requested+course.graders
+          case grader 
+          when 0
+            if course.graderOne && course.graderOne.length > 8
+              course.requestOne = false
+              course.graders = 1
+              course.save
+            else
+              @applicants = Applicant.filter_by_looking()
+              @applicants = @applicants.filter_by_course(course.courseNumber)
+              if @applicants.length > 0
+                @applicants = @applicants.filter_hours([
+                  course.mondayStart || 9999, course.mondayEnd || 0, 
+                  course.tuesdayStart || 9999, course.tuesdayEnd || 0, 
+                  course.wednesdayStart || 9999, course.wednesdayEnd || 0, 
+                  course.thursdayStart || 9999, course.thursdayEnd || 0, 
+                  course.fridayStart || 9999, course.fridayEnd || 0])
+                if @applicants.length > 0
+                  found = @applicants.first
+                  found.available = false
+                  found.save
+                  course.graderOne = found.email
+                  course.graders = 1
+                  course.save
+
+                end
+              end
+            end
+          when 1
+            if course.graderTwo && course.graderTwo.length > 8
+              course.requestTwo = false
+              course.graders = 2
+              course.save
+            else
+              @applicants = Applicant.filter_by_looking()
+              @applicants = @applicants.filter_by_course(course.courseNumber)
+              if @applicants.length > 0
+                @applicants = @applicants.filter_hours([
+                  course.mondayStart || 9999, course.mondayEnd || 0, 
+                  course.tuesdayStart || 9999, course.tuesdayEnd || 0, 
+                  course.wednesdayStart || 9999, course.wednesdayEnd || 0, 
+                  course.thursdayStart || 9999, course.thursdayEnd || 0, 
+                  course.fridayStart || 9999, course.fridayEnd || 0])
+                if @applicants.length > 0
+                  found = @applicants.first
+                  found.available = false
+                  found.save
+                  course.graderTwo = found.email
+                  course.graders = 2
+                  course.save
+                end
+              end
+            end
+          when 2
+            if course.graderThree && course.graderThree.length > 8
+              course.requestThree = false
+              course.graders = 3
+              course.save
+            else
+              @applicants = Applicant.filter_by_looking()
+              @applicants = @applicants.filter_by_course(course.courseNumber)
+              if @applicants.length > 0
+                @applicants = @applicants.filter_hours([
+                  course.mondayStart || 9999, course.mondayEnd || 0, 
+                  course.tuesdayStart || 9999, course.tuesdayEnd || 0, 
+                  course.wednesdayStart || 9999, course.wednesdayEnd || 0, 
+                  course.thursdayStart || 9999, course.thursdayEnd || 0, 
+                  course.fridayStart || 9999, course.fridayEnd || 0])
+                if @applicants.length > 0
+                  found = @applicants.first
+                  found.available = false
+                  found.save
+                  course.graderThree = found.email
+                  course.graders = 3
+                  course.save
+                end
+              end
+            end
+          when 3
+            if course.graderFour && course.graderFour.length > 8
+              course.requestFour = false
+              course.graders = 4
+              course.save
+            else
+              @applicants = Applicant.filter_by_looking()
+              @applicants = @applicants.filter_by_course(course.courseNumber)
+              if @applicants.length > 0
+                @applicants = @applicants.filter_hours([
+                  course.mondayStart || 9999, course.mondayEnd || 0, 
+                  course.tuesdayStart || 9999, course.tuesdayEnd || 0, 
+                  course.wednesdayStart || 9999, course.wednesdayEnd || 0, 
+                  course.thursdayStart || 9999, course.thursdayEnd || 0, 
+                  course.fridayStart || 9999, course.fridayEnd || 0])
+                if @applicants.length > 0
+                  found = @applicants.first
+                  found.available = false
+                  found.save
+                  course.graderFour = found.email
+                  course.graders = 4
+                  course.save
+                end
+              end
+            end
+          else
+          end
+        end
+      end
+    end
+  end
+  def final
+    @courses = Course.all 
   end
   # GET /courses/1
   # GET /courses/1.json
