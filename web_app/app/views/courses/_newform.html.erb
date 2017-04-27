@@ -1,0 +1,126 @@
+<%= form_for(course) do |f| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Course Number" %>
+    <%= f.number_field :courseNumber %>
+  </div>
+  <div class="field">
+    <%= f.label "Section Number" %>
+    <%= f.number_field :sectionNumber %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Professor" %>
+    <%= f.text_field :professor  %>
+  </div>
+
+  <table>
+  <thead>
+    <tr>
+      <th style="text-align:center">Day</th>
+      <th style="text-align:center">Start</th>
+      <th style="text-align:center">End</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>Monday</td>
+        <td style="padding-right:10px"> 
+          <div class="field">
+            <%= f.select :mondayStart, options_for_select(@time_options) %>
+          </div>
+        </td>
+        <td style="padding-right:10px">
+          <div class="field">
+            <%= f.select :mondayEnd, options_for_select(@time_options) %>
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
+      <td>Tuesday</td>
+      <td>
+        <div class="field">
+          <%= f.select :tuesdayStart, options_for_select(@time_options) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :tuesdayEnd, options_for_select(@time_options) %>
+        </div>
+      </td>
+
+      </tr>
+
+      <tr>
+      <td style="padding-right:10px">Wednesday</td>
+      <td>
+        <div class="field">
+          <%= f.select :wednesdayStart, options_for_select(@time_options) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :wednesdayEnd, options_for_select(@time_options) %>
+        </div>
+      </td>
+
+      </tr>
+
+      <tr>
+      <td>Thursday</td>
+      <td>
+        <div class="field">
+          <%= f.select :thursdayStart, options_for_select(@time_options) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+          <%= f.select :thursdayEnd, options_for_select(@time_options) %>
+        </div>
+      </td>
+
+      </tr>
+
+      <tr>
+      <td>Friday</td>
+      <td>
+        <div class="field">
+        <%= f.select :fridayStart, options_for_select(@time_options) %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field">
+        <%= f.select :fridayEnd, options_for_select(@time_options) %>
+        </div>
+      </td>
+      </tr>
+
+  </tbody>
+</table>
+    <div class="field">
+      <%= f.label :active %>
+      <%= f.check_box :active, :value => "true" %>
+    </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+<% end %>
