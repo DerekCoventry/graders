@@ -7,7 +7,6 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    if user_signed_in? 
       @courses = Course.all
       @course_num = [0] + Course.all.map{|c| c.courseNumber}
       @sections = [0] + @courses.all.map{|s| s.sectionNumber}
@@ -29,15 +28,14 @@ class CoursesController < ApplicationController
       end
 
       courses_searched = @courses
-      if current_user.staff
+      if user_signed_in? && current_user.staff
         @courses = smart_listing_create :courses, @courses, partial: "courses/staff"
-      elsif current_user.professor
+      elsif user_signed_in? && current_user.professor
         @courses = smart_listing_create :courses, @courses, partial: "courses/listing"
       else
         @courses = smart_listing_create  :courses,  @courses, partial: "courses/safe" 
       end
           
-    end
   end
   def addgrader
     @email = params[:email].to_s

@@ -1,5 +1,9 @@
 class AuthenticateController < ApplicationController
   def index
+    current_user.auth()
+    if current_user.staff || current_user.professor
+      redirect_to "/"
+    end
   end
   def confirm
   	@professors = Directory.all.each do |d| 

@@ -62,9 +62,11 @@ class DirectoriesController < ApplicationController
     end
   end
   def gatherdata
+    gatherdirectory
     redirect_to directories_url
   end
   def gatherdirectory
+    puts "enter"
     require "open-uri"
 
 
@@ -80,15 +82,26 @@ class DirectoriesController < ApplicationController
       while current[charCount+16] != '"'
         charCount += 1
       end
+      charPeriod = 0
+      charAt = 0
+      while current[charPeriod+16] != '.'
+        charPeriod += 1
+      end
+      while current[charAt+16+charPeriod] != '@'
+        charAt += 1
+      end
       if @directory.exists? current[16,charCount].to_s
+        puts "exist"
         newProf = @directory.find current[16,charCount].to_s
         newProf.professor = true
+        newProf.key = current[16,charPeriod]+current[16+charPeriod,charAt]
         newProf.save
       else
         newProf = Directory.new
         newProf.email = current[16,charCount].to_s
         newProf.professor = true
         newProf.staff = false
+        newProf.key = current[16,charPeriod]+current[16+charPeriod,charAt]
         newProf.save
       end
         @directory = Directory.all
@@ -103,15 +116,25 @@ class DirectoriesController < ApplicationController
       while current[charCount+16] != '"'
         charCount += 1
       end
+      charPeriod = 0
+      charAt = 0
+      while current[charPeriod+16] != '.'
+        charPeriod += 1
+      end
+      while current[charAt+16+charPeriod] != '@'
+        charAt += 1
+      end
       if @directory.exists? current[16,charCount].to_s
         newProf = @directory.find current[16,charCount].to_s
         newProf.professor = true
+        newProf.key = current[16,charPeriod]+current[16+charPeriod,charAt]
         newProf.save
       else
         newProf = Directory.new
         newProf.email = current[16,charCount].to_s
         newProf.professor = true
         newProf.staff = true
+        newProf.key = current[16,charPeriod]+current[16+charPeriod,charAt]
         newProf.save
       end
         @directory = Directory.all
@@ -125,15 +148,25 @@ class DirectoriesController < ApplicationController
       while current[charCount+16] != '"'
         charCount += 1
       end
+      charPeriod = 0
+      charAt = 0
+      while current[charPeriod+16] != '.'
+        charPeriod += 1
+      end
+      while current[charAt+16+charPeriod] != '@'
+        charAt += 1
+      end
       if @directory.exists? current[16,charCount].to_s
         newStaff = @directory.find current[16,charCount].to_s
         newStaff.staff = true
+        newProf.key = current[16,charPeriod]+current[16+charPeriod,charAt]
         newStaff.save
       else
         newStaff = Directory.new
         newStaff.email = current[16,charCount].to_s
         newStaff.professor = false
         newStaff.staff = true
+        newProf.key = current[16,charPeriod]+current[16+charPeriod,charAt]
         newStaff.save
       end
         @directory = Directory.all
@@ -148,6 +181,6 @@ class DirectoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def directory_params
-      params.require(:directory).permit(:email, :professor, :staff)
+      params.require(:directory).permit(:email, :professor, :staff, :key)
     end
 end

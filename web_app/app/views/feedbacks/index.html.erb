@@ -29,8 +29,9 @@
           <td style="padding-right:10px"><%= feedback.sname %></td>
           <td style="padding-right:10px"><%= feedback.rating %></td>
           <td style="padding-right:10px"><%= link_to 'Show', feedback %></td>
+          <% if feedback.pemail == current_user.email %>
           <td style="padding-right:10px"><%= link_to 'Edit', edit_feedback_path(feedback) %></td>
-          <td style="padding-right:10px"><%= link_to 'Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

@@ -80,9 +80,6 @@
               %a{:href => "../../courses/requestgrader.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Request
             %td{:style => "padding-right:20px; text-align: center"} 
               %a{:href => "../../courses/requestgrader.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Request
-
-          %td{:style => "padding-right:20px; text-align: center"}= link_to("Show", "/courses/#{course.id}")
-          %td{:style => "padding-right:20px; text-align: center"}= link_to("Edit", "/courses/#{course.id}/edit")
           -if course.active
             %td{:style => "padding-right:20px; text-align: center"} 
               %a{:href => "../../courses/activate.html?course=#{course.courseNumber}&section=#{course.sectionNumber}"} Unctivate

@@ -4,19 +4,20 @@
         	<li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="/" style="padding-top: 10px; padding-bottom:10px">Home</a></li>
         	<li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../../courses" style="padding-top: 10px; padding-bottom:10px">Courses</a></li>
         <% if user_signed_in? %>
-
-          <li class="presentation" role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../students/index" style="padding-top: 10px; padding-bottom:10px;">Students</a></li>
           	<% if current_user.staff? %>
+          	  <li class="presentation" role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../applicants" style="padding-top: 10px; padding-bottom:10px;">Choose Students</a></li>
 	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../professors/index" style="padding-top: 10px; padding-bottom:10px ">Professors</a></li>
 	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../recommendations" style="padding-top: 10px; padding-bottom:10px ">Recommendations</a></li>
 	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../feedbacks" style="padding-top: 10px; padding-bottom:10px ">Feedback</a></li>
 	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../directories" style="padding-top: 10px; padding-bottom:10px ">Directory</a></li>
 	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../prereqs" style="padding-top: 10px; padding-bottom:10px ">Pre-Reqs</a></li>
 	        <% elsif current_user.professor? %>
+	          <li class="presentation" role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../applicants" style="padding-top: 10px; padding-bottom:10px;">Choose Students</a></li>
 	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../professors/index" style="padding-top: 10px; padding-bottom:10px ">Professors</a></li>
 	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../recommendations" style="padding-top: 10px; padding-bottom:10px ">Recommendations</a></li>
 	          <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../feedbacks" style="padding-top: 10px; padding-bottom:10px ">Feedback</a></li>
 	        <% else %>
+	            <li class="presentation" role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../students/index" style="padding-top: 10px; padding-bottom:10px;">Students</a></li>
 	            <li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../authenticate/index" style="padding-top: 10px; padding-bottom:10px;">Professor Authentication</a></li>
 	           	<li role="presentation" style="background-color:white; padding: 0px; margin-right:5px; border-top: 1px solid #333; border-radius: 4px"><a href="../../../authenticate/index" style="padding-top: 10px; padding-bottom:10px;">Staff Authentication</a></li>
 

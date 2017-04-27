@@ -1,15 +1,17 @@
+<h1>Directory</h1>
 <p id="notice"><%= notice %></p>
 <form action="../directories/gatherdata">
-  <button class="ui right floated violet button">Gather Data</button>
+  <button class="ui top attached violet button">Gather Data</button>
 </form>
-<h1>Directories</h1>
 
+<div class="ui attached segment">
 <table>
   <thead>
     <tr>
-      <th>Email</th>
-      <th>Professor</th>
-      <th>Staff</th>
+      <th style="padding-right:10px;border-bottom:1px solid black">Email</th>
+      <th style="padding-right:10px;border-bottom:1px solid black">Professor</th>
+      <th style="padding-right:10px;border-bottom:1px solid black">Staff</th>
+      <th style="padding-right:10px;border-bottom:1px solid black">Key</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,17 +19,12 @@
   <tbody>
     <% @directories.each do |directory| %>
       <tr>
-        <td><%= directory.email %></td>
-        <td><%= directory.professor %></td>
-        <td><%= directory.staff %></td>
-        <td><%= link_to 'Show', directory %></td>
-        <td><%= link_to 'Edit', edit_directory_path(directory) %></td>
-        <td><%= link_to 'Destroy', directory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="padding-right:10px"><%= directory.email %></td>
+        <td style="padding-right:10px"><%= directory.professor %></td>
+        <td style="padding-right:10px"><%= directory.staff %></td>
+        <td style="padding-right:10px"><%= directory.key %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Directory', new_directory_path %>
+</div>

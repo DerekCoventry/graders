@@ -1,4 +1,8 @@
 <% if user_signed_in? %>
+    <% if (current_user.staff || current_user.professor) %>
+    <% elsif %>
+    <% current_user.auth() %>
+    <% end %>
 	<h3 style = "color:teal"> Matching professors with their graders like there is no tomorrow.</h3>
 	<div class="col-md-6">
 		<p>Graders are the people who grade assignments for the professors. They are the men behind the mirror! Graders follow what the professor tells them to do. They work tirelessly to give students the best possible experience here at The Ohio State University</p>
@@ -38,13 +42,13 @@
                 <hr class="intro-divider">
                 <ul class="list-inline intro-social-buttons">
                     <li class="list-inline-item">
-                        <a href="#" class="ui green button">Sign-in</a>
+                        <a href="/users/sign_in" class="ui green button">Sign-in</a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="ui blue button"> <span class="network-name">Sign-up</span></a>
+                        <a href="users/sign_up" class="ui blue button"> <span class="network-name">Sign-up</span></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="ui olive button"> <span class="network-name">View Courses</span></a>
+                        <a href="courses" class="ui olive button"> <span class="network-name">View Courses</span></a>
                     </li>
                 </ul>
             </div>

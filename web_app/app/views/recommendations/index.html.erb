@@ -22,7 +22,9 @@
         <td style="padding-right:10px"><%= recommendation.student %></td>
         <td style="padding-right:10px"><%= recommendation.course %></td>
         <td style="padding-right:10px"><%= link_to 'Show', recommendation %></td>
-        <td style="padding-right:10px"><%= link_to 'Edit', edit_recommendation_path(recommendation) %></td>
+        <% if recommendation.pemail == current_user.email %>
+          <td style="padding-right:10px"><%= link_to 'Edit', edit_recommendation_path(recommendation) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

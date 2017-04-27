@@ -1,51 +1,52 @@
-- unless smart_listing.empty?
-  = smart_listing_controls_for(:applicants) do
-    .form-group.filter.input-append
-    %p Selected: CSE #{@filterselected}.#{@sectionselected}
-    %input{:type => "radio", :name => "pref", :value => true}
-    %label Preference Required
-    %br
-    %input{:type => "radio", :name => "pref", :value => false}
-    %label Preference Not Required
-    %br
-    %label CSE
-    %select{:name => "filter", :value => @filterselected}
-      - @course_num.uniq.each do |sec|
-        %option{:value => sec, :selected => params[:y] == sec}=sec
-    %select{:name => "sect", :value => @sectionselected}
-      - @sections.uniq.each do |sec|
-        %option{:value => sec, :selected => params[:y] == sec}=sec
-    %button{type: "submit"}
-      %i.glyphicon.glyphicon-search
+%div{:class => "ui segment"}
+  - unless smart_listing.empty?
+    = smart_listing_controls_for(:applicants) do
+      .form-group.filter.input-append
+      %p Selected: CSE #{@filterselected}.#{@sectionselected}
+      %input{:type => "radio", :name => "pref", :value => true}
+      %label Preference Required
+      %br
+      %input{:type => "radio", :name => "pref", :value => false}
+      %label Preference Not Required
+      %br
+      %label CSE
+      %select{:name => "filter", :value => @filterselected}
+        - @course_num.uniq.each do |sec|
+          %option{:value => sec, :selected => params[:y] == sec}=sec
+      %select{:name => "sect", :value => @sectionselected}
+        - @sections.uniq.each do |sec|
+          %option{:value => sec, :selected => params[:y] == sec}=sec
+      %button{type: "submit"}
+        %i.glyphicon.glyphicon-search
 
-  %table
-    %thead
-      %tr 
-        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} First
-        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Last
-        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Email
-        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Course Pref
-        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} References
-        %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Feedback
-    %tbody
-      - smart_listing.collection.each do |applicant|
-        %tr
-          %td{:style => "padding-right:20px; padding-top:10px; text-align: center"}= applicant.fname
-          %td{:style => "padding-right:20px; text-align: center"}= applicant.lname
-          %td{:style => "padding-right:20px; text-align: center"}= applicant.email
-          %td{:style => "padding-right:20px; text-align: center"}#{applicant.classOne}  #{applicant.classTwo}  #{applicant.classThree}
-          %td{:style => "padding-right:20px; text-align: center"}
-            %a{:href => "../../recommendations"}= applicant.references ||= 0
-          %td{:style => "padding-right:20px; text-align: center"}
-            %a{:href => "../../feedbacks"}= applicant.feedback ||= 0 
-          - if @filterselected != "0" && @sectionselected != "0"
-            %td
-              %a{:href => "../../courses/addgrader.html?email=#{applicant.email}&course=#{@filterselected}&section=#{@sectionselected}"} Add as grader to CSE #{@filterselected}.#{@sectionselected}
+    %table
+      %thead
+        %tr 
+          %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} First
+          %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Last
+          %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Email
+          %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Course Pref
+          %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} References
+          %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Feedback
+      %tbody
+        - smart_listing.collection.each do |applicant|
+          %tr
+            %td{:style => "padding-right:20px; padding-top:10px; text-align: center"}= applicant.fname
+            %td{:style => "padding-right:20px; text-align: center"}= applicant.lname
+            %td{:style => "padding-right:20px; text-align: center"}= applicant.email
+            %td{:style => "padding-right:20px; text-align: center"}#{applicant.classOne}  #{applicant.classTwo}  #{applicant.classThree}
+            %td{:style => "padding-right:20px; text-align: center"}
+              %a{:href => "../../recommendations"}= applicant.references ||= 0
+            %td{:style => "padding-right:20px; text-align: center"}
+              %a{:href => "../../feedbacks"}= applicant.feedback ||= 0 
+            - if @filterselected != "0" && @sectionselected != "0"
+              %td
+                %a{:href => "../../courses/addgrader.html?email=#{applicant.email}&course=#{@filterselected}&section=#{@sectionselected}"} Add as grader to CSE #{@filterselected}.#{@sectionselected}
 
 
 
 
-  = smart_listing.paginate 
-- else
-  %p.warning No applicants found!
-  %a{ :href => "../applicants", :title => "back" }Back
+    = smart_listing.paginate 
+  - else
+    %p.warning No applicants found!
+    %a{ :href => "../applicants", :title => "back" }Back
