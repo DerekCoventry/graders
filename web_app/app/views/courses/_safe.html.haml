@@ -27,36 +27,33 @@
         %th{:style => "padding-right:20px; border-bottom: 1px solid black;text-align: center"} Four
     %tbody
       - smart_listing.collection.each do |course|
-        %tr
-          %td{:style => "padding-right:20px; padding-top:10px; text-align: center"}= course.courseNumber
-          %td{:style => "padding-right:20px; text-align: center"}= course.sectionNumber
-          %td{:style => "padding-right:20px; text-align: center"}= (course.professor || "Undetermined")
-          -if course.requested > 0
-            -if course.requestOne
+        -if course.active
+          %tr
+            %td{:style => "padding-right:20px; padding-top:10px; text-align: center"}= course.courseNumber
+            %td{:style => "padding-right:20px; text-align: center"}= course.sectionNumber
+            %td{:style => "padding-right:20px; text-align: center"}= (course.professor || "Undetermined")
+            -if course.graders+course.requested > 0
               %td{:style => "padding-right:20px; text-align: center"}= (course.graderOne || "Requested")
-            -if course.requested > 1
-              -if course.requestTwo
+              -if course.graders+course.requested > 1
                 %td{:style => "padding-right:20px; text-align: center"}= (course.graderTwo || "Requested")
-              -if course.requested > 2
-                -if course.requestThree
+                -if course.graders+course.requested > 2
                   %td{:style => "padding-right:20px; text-align: center"}= (course.graderThree || "Requested")
-                -if course.requested > 3
-                  -if course.requestFour
+                  -if course.graders+course.requested > 3
                     %td{:style => "padding-right:20px; text-align: center"}= (course.graderFour || "Requested")
+                  -else
+                    %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
                 -else
                   %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+                  %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
               -else
+                %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
                 %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
                 %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
             -else
               %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
               %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
               %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
-          -else
-            %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
-            %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
-            %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
-            %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
+              %td{:style => "padding-right:20px; text-align: center"}= ("Not Requested")
             
 
 

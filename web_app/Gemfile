@@ -85,6 +85,8 @@ gem 'http-cookie'
 
 gem 'pry'
 
+gem 'jsoner'
+
 gem 'smart_listing'
 gem 'kaminari'
 gem 'pdf-reader'
