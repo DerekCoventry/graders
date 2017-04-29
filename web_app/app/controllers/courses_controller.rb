@@ -558,11 +558,8 @@ class CoursesController < ApplicationController
     end
     @course = Course.all
   end
-<<<<<<< HEAD
   helper_method :gathercourses
-=======
-  helper_method :gatherdata
->>>>>>> 1382978edbcdc9ccc45a469677f4c7542fab51c1
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
