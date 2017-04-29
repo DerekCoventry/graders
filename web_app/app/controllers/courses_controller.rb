@@ -397,23 +397,8 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def gatherdata
-  end
 
-<<<<<<< HEAD
   def gathercourses
-=======
-  def gatherdata
-    require 'jsoner'
-    require 'rubygems'
-    require 'json'
-    require 'date'
-    require 'time'
-    require 'mechanize'
-    require 'nokogiri'
-    require 'open-uri'
->>>>>>> 1382978edbcdc9ccc45a469677f4c7542fab51c1
-
     rmkey = ["Room", "Session", "Topic"]
 
     agent = Mechanize.new

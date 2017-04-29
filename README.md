@@ -48,27 +48,17 @@ Here you will have 3 options:
 
 	* Staff Authentication - Click here to authenticate your account as a staff account (only needs to be done the first time)
 
+_Note: Authentication is done automatically when signing up with your osu email. In case the authentication fails these options can be used._
+
 ----------
 
 ### Professors
 
-_For a professor accessing the application for the first time:_
-
-1) Sign up and create an account
-
-2) Click on the PROFESSOR AUTHENTICATION tab
-
-Now you have 2 options:
-
-* My Account Email is my Professor Email - Clicking on this link will verify the user's email and grant professor priveledges
-
-* My Account Email is Different from my Staff Email - Clicking on this link will prompt you to create a new account
-
-----
-
 _For a professor that has professor priveledges on his/her account:_
 
-* Log in 
+1) Log in 
+
+2) Use the COURSES tab to view a list of the courses and to see which courses are looking for graders and how many/which graders have already been assigned or to deactivate a coure i.e. make it unable to 
 
 * Navigate to the PROFESSORS tab to view students, view courses or submit recommendations
 
