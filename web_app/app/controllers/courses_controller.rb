@@ -528,6 +528,8 @@ class CoursesController < ApplicationController
         newCourse.fridayStart = courseHash["fridayStart"]
         newCourse.fridayEnd = courseHash["fridayEnd"]
         newCourse.professor = courseHash["Instructor"]
+        newCourse.active = true
+        newCourse.requested = 0
         newCourse.save
       end
     end
