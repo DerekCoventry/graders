@@ -18,7 +18,6 @@ class FeedbacksController < ApplicationController
     @course_num.uniq!
     @feedback = Feedback.new
 
-    end
   end
 
   # GET /feedbacks/1/edit
@@ -38,8 +37,10 @@ class FeedbacksController < ApplicationController
       @applicants.each do |c|
         x=c.id
       end
-      @app = @applicants.find x
-      @feedback.student_id = x
+      if x !=0
+        @app = @applicants.find x
+        @feedback.student_id = x
+      end
       respond_to do |format|
         if @feedback.save
           format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
@@ -48,6 +49,7 @@ class FeedbacksController < ApplicationController
           format.html { render :new }
           format.json { render json: @feedback.errors, status: :unprocessable_entity }
         end
+      end
     end
   end
 
