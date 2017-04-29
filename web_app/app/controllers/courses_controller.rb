@@ -7,7 +7,20 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
+      Course.all.each do |c| 
+        if c.requested == nil
+          c.requested = 0
+        end
+        if c.graders == nil
+          c.graders = 0
+        end
+        if c.active == nil
+          c.active = false
+        end
+        c.save
+      end
       @courses = Course.all
+      Course
       @course_num = [0] + Course.all.map{|c| c.courseNumber}
       @sections = [0] + @courses.all.map{|s| s.sectionNumber}
       @filterselected = "0"
@@ -384,7 +397,12 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def gatherdata
+  end
 
+<<<<<<< HEAD
+  def gathercourses
+=======
   def gatherdata
     require 'jsoner'
     require 'rubygems'
@@ -394,6 +412,7 @@ class CoursesController < ApplicationController
     require 'mechanize'
     require 'nokogiri'
     require 'open-uri'
+>>>>>>> 1382978edbcdc9ccc45a469677f4c7542fab51c1
 
     rmkey = ["Room", "Session", "Topic"]
 
@@ -513,8 +532,12 @@ class CoursesController < ApplicationController
         courseHash["thursdayEnd"]= onDay[7]
         courseHash["fridayStart"]= onDay[8]
         courseHash["fridayEnd"]= onDay[9]
-
         newCourse = Course.new
+        @course_search = Course.all.filter_course_num(courseHash["Course Number"])
+        @course_search = @course_search.filter_course_sect(courseHash["Section"])
+        if @course_search.length > 0
+          newCourse = @course_search.first
+        end
         newCourse.sectionNumber = courseHash["Section"]
         newCourse.courseNumber = courseHash["Course Number"]
         newCourse.mondayStart = courseHash["mondayStart"]
@@ -535,7 +558,8 @@ class CoursesController < ApplicationController
     end
     @course = Course.all
   end
-  helper_method :gatherdata
+  helper_method :gathercourses
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course

@@ -1,6 +1,4 @@
-<div class="ui segment" style="text-align:center">
-	<h2 class="ui header">Please wait while we gather the data for you.<h2>
-	<div class="ui active large text centered inline loader"></div><br />
-	<p>You will be automatically redirected once the gathering has completed.</p>
-</div>
-<%  render "courses/loader" %>
+<% gathercourses %>
+<h1>Successfully gathered course data</h1>
+<form action="../../../courses"><button class="ui violet button">Return to courses</button></form>
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'courses/gatherdata'
   get 'courses/configure'
   get 'courses/final'
   get 'courses/autofill'
