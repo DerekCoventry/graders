@@ -385,7 +385,7 @@ class CoursesController < ApplicationController
     end
   end
 
-  def gathercourses
+  def gatherdata
     require 'jsoner'
     require 'rubygems'
     require 'json'
@@ -533,8 +533,9 @@ class CoursesController < ApplicationController
         newCourse.save
       end
     end
+    @course = Course.all
   end
-
+  helper_method :gatherdata
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
