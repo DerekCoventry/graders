@@ -1,4 +1,4 @@
-ruby '2.4.0'
+ruby '2.4.0p0'
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -87,6 +87,7 @@ gem 'jsoner'
 gem 'smart_listing'
 gem 'kaminari'
 gem 'pdf-reader'
+gem ''
 
 gem 'semantic-ui-sass', git: "https://github.com/doabit/semantic-ui-sass.git"
 
