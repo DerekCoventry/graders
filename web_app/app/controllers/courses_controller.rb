@@ -400,7 +400,19 @@ class CoursesController < ApplicationController
   def gatherdata
   end
 
+<<<<<<< HEAD
   def gathercourses
+=======
+  def gatherdata
+    require 'jsoner'
+    require 'rubygems'
+    require 'json'
+    require 'date'
+    require 'time'
+    require 'mechanize'
+    require 'nokogiri'
+    require 'open-uri'
+>>>>>>> 1382978edbcdc9ccc45a469677f4c7542fab51c1
 
     rmkey = ["Room", "Session", "Topic"]
 
@@ -544,8 +556,13 @@ class CoursesController < ApplicationController
         newCourse.save
       end
     end
+    @course = Course.all
   end
+<<<<<<< HEAD
   helper_method :gathercourses
+=======
+  helper_method :gatherdata
+>>>>>>> 1382978edbcdc9ccc45a469677f4c7542fab51c1
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
