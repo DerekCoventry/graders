@@ -80,4 +80,52 @@ _For a professor that has professor priveledges on his/her account:_
 
 ----
 
-###
+### Staff
+
+1) Click on COURSES tab
+
+	1) Edit course listing
+
+	2) View a final course listing for easy printing
+
+	3) Click *Gather Course Data* to refresh course lisitng
+
+	4) Click *Add Course* to add a new course
+
+	5) Click *Configure Courses* to edit courses 
+
+	6) Click *Autofill graders* to automatically match graders
+
+	7) Sort courses, request graders/delete requests and deactivate courses
+
+2) Use the CHOOSE STUDENTS tab to view a list of applicants
+
+	* Sort the list of applicants based on course/section/preference of the applicant
+
+	* Click on the reference number to view all the recommendations the student has recieved or to add a new one 
+
+	* Click on the feedback number to view/add feedbacks for the student
+
+3) Click on the PROFFESSORS tab:
+
+	1) Available Students - Click this button to view applicants
+
+	2) Submit Recommendations - Click this button to view and edit recommendations that you have given or to add a new one
+
+	3) View Courses - Click this button to view the course listing for a semester, request up to 4 graders for a course or to deactivate a course
+	
+4) Click on the RECOMMENDATIONS tab to view all the recommendations that you have submitted, edit the existing recommendations and to add a new recommendation
+
+5) Click on the FEEDBACK tab to view all the feedback that you have submitted, edit the existing feedback, delete the existing feedback and to add a new feedback, delete the existing feedback
+
+6) Click on DIRECTORY tab to view a list of professors and staff
+	
+	1) Use the *Gather Data* button to refresh the list
+
+7) Click on PRE-REQS tab to view a list of courses and pre-requisites
+	
+	1) Use the *Gather Data* button to refresh the list
+
+	2) View individually, edit prereqs or delete prereqs
+
+----
