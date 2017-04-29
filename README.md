@@ -32,15 +32,13 @@ For a student accessing the web application to apply for a grader position:
 
 2) Use the COURSES tab to view a list of the courses and to see which courses are looking for graders and how many/which graders have already been assigned
 
-3) Navigate to the STUDENTS tab 
-	
-Here you will have 3 options:
+3) Navigate to the STUDENTS tab:
 
-* New Application - Click this button to start a new application
+	1) New Application - Click this button to start a new application
 
-* View Applications - Click this button to view and edit previous applications
+	2) View Applications - Click this button to view and edit previous applications
 
-* View Courses - Click this button to view the course listing for a semester
+	3) View Courses - Click this button to view the course listing for a semester
 
 4) Other Options:
 
@@ -58,16 +56,28 @@ _For a professor that has professor priveledges on his/her account:_
 
 1) Log in 
 
-2) Use the COURSES tab to view a list of the courses and to see which courses are looking for graders and how many/which graders have already been assigned or to deactivate a coure i.e. make it unable to 
+2) Use the COURSES tab to view a list of the courses and to see which courses are looking for graders and how many/which graders have already been assigned or to deactivate a coure i.e. make it unable for students to apply to be a grader for that course 
 
-* Navigate to the PROFESSORS tab to view students, view courses or submit recommendations
+3) Use the CHOOSE STUDENTS tab to view a list of applicants
 
-	1) View Students - Here the professor can filter and search for students available and eligible for grader positions for different classes.
+	* Sort the list of applicants based on course/section/preference of the applicant
 
-	2) Submit Recommendation - Here the professor can submit a new recommendation for a student.
+	* Click on the reference number to view all the recommendations the student has recieved or to add a new one 
 
-	3) View Courses - This option allows the professor to view the course list, create a new course or edit an existing course.
+	* Click on the feedback number to view/add feedbacks for the student
 
-* Navigate to the RECOMMENDATIONS tab to view, edit or create recommendations.
+4) Click on the PROFFESSORS tab:
+
+	1) Available Students - Click this button to view applicants
+
+	2) Submit Recommendations - Click this button to view and edit recommendations that you have given or to add a new one
+
+	3) View Courses - Click this button to view the course listing for a semester, request up to 4 graders for a course or to deactivate a course
+	
+5) Click on the RECOMMENDATIONS tab to view all the recommendations that you have submitted, edit the existing recommendations and to add a new recommendation
+
+6) Click on the FEEDBACK tab to view all the feedback that you have submitted, edit the existing feedback, delete the existing feedback and to add a new feedback, delete the existing feedback
 
 ----
+
+###

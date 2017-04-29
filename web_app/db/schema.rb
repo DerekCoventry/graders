@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427140545) do
+ActiveRecord::Schema.define(version: 20170429184001) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "fname"
@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20170427140545) do
     t.integer  "fridayStart"
     t.integer  "fridayEnd"
     t.string   "professor"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "sectionNumber"
     t.string   "graderOne"
     t.string   "graderTwo"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 20170427140545) do
     t.boolean  "requestThree"
     t.boolean  "requestFour"
     t.integer  "graders"
-    t.boolean  "active"
-    t.integer  "requested"
+    t.boolean  "active",         default: true
+    t.integer  "requested",      default: 0
   end
 
   create_table "directories", force: :cascade do |t|
@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20170427140545) do
     t.string   "fname"
     t.boolean  "admin",                  default: false
     t.integer  "role"
-    t.boolean  "student",                default: false
+    t.boolean  "student"
     t.string   "lname"
     t.boolean  "professor",              default: false
     t.boolean  "stud"

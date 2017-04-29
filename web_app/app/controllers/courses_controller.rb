@@ -409,6 +409,8 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def gatherdata
+  end
 
   def gathercourses
 
@@ -554,7 +556,6 @@ class CoursesController < ApplicationController
         newCourse.save
       end
     end
-    @course = Course.all
   end
   helper_method :gathercourses
 
