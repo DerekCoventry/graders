@@ -399,6 +399,7 @@ class CoursesController < ApplicationController
   end
 
   def gathercourses
+
     rmkey = ["Room", "Session", "Topic"]
 
     agent = Mechanize.new
