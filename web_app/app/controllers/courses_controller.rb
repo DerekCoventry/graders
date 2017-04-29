@@ -17,6 +17,18 @@ class CoursesController < ApplicationController
         if c.active == nil
           c.active = false
         end
+        if c.graderOne.to_s.length < 8
+          c.graderOne = nil
+        end
+        if c.graderTwo.to_s.length < 8
+          c.graderTwo = nil
+        end
+        if c.graderThree.to_s.length < 8
+          c.graderThree = nil
+        end
+        if c.graderFour.to_s.length < 8
+          c.graderFour = nil
+        end
         c.save
       end
       @courses = Course.all
